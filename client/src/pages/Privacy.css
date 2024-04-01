@@ -1,0 +1,46 @@
+.open {
+    margin: 25px;
+} 
+
+.actions-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .about-us, .links, .get-in-touch {
+    flex: 1 0 250px;
+    padding: 0px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us h2, .links h2, .get-in-touch h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .about-us h3, .links h3, .get-in-touch h3 {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    margin: 15px;
+  }
+  
+  h5 {
+    margin: 15px;
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    font-weight: normal; /* Removes bolding */
+    text-align: justify; /* Aligns the text to both the left and right margins */
+  }

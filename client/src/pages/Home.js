@@ -1,0 +1,234 @@
+import React, {useEffect, useState} from 'react';
+import Logo from '../img/Goodwill-Logo.png'; // replace with the path to your logo file
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import './Home.css';
+import Footer from '../components/Footer';
+
+const Home = () => {
+    const navigate = useNavigate();
+    const [cookies, removeCookie] = useCookies([]);
+    const [username, setUsername] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [receiptIdInput, setReceiptIdInput] = useState('');
+    const [receipts, setReceipts] = useState([]);
+    const [receiptNotFound, setReceiptNotFound] = useState(false);
+
+    useEffect(() => {
+      const fetchReceipts = async () => {
+        try {
+          const { data: userData } = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/current_user`,
+            { withCredentials: true }
+          );
+          const user = userData.user;
+
+          const receiptPromises = user.receipts.map(receiptId =>
+            axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
+              params: { id: receiptId },
+              withCredentials: true
+            })
+          );
+          
+          const receiptResponses = await Promise.all(receiptPromises);
+          
+          const receipts = receiptResponses.map(response => response.data);
+            setReceipts(receipts);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+      fetchReceipts();
+    }, []);
+
+    const handleModalSubmit = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/api/receipt_ids`,
+          { params: { id: receiptIdInput }, withCredentials: true }
+        );
+        console.log(data);
+        if (data) {
+          console.log("Response: ", data);
+          setReceipts(prevReceipts => [...prevReceipts, data]);
+          setReceiptNotFound(false);
+
+          const { data: userData } = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/current_user`,
+            { withCredentials: true }
+          );
+          console.log("User Data: ", userData);
+          const user = userData.user;
+          user.receipts.push(data);
+          console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user._id}`);
+          console.log("User: ", user);
+          await axios.put(
+            `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
+            {receipts: user.receipts},
+            { withCredentials: true }
+          );
+          setIsModalOpen(false);
+          setReceiptIdInput('');
+        } else {
+          console.log("Can't find receipt id");
+          setReceiptNotFound(true);
+        }
+      } catch (error) {
+        setReceiptNotFound(true);
+        console.error(error);
+      }
+    };
+
+    const handleAddNewDonation = () => {
+      setIsModalOpen(true);
+    };
+
+    const Logout = () => {
+        removeCookie("token");
+        navigate("/welcome");
+      };
+
+      const EditAccount = () => {
+        navigate("/edit-account");
+      };
+
+      useEffect(() => {
+        const verifyCookie = async () => {
+          if (!cookies.token) {
+            navigate("/welcome");
+          }
+          const { data } = await axios.post(
+            `${process.env.REACT_APP_BASE_URL}`,
+            {},
+            { withCredentials: true }
+          );
+          const { status, user } = data;
+          setUsername(user);
+          return status
+            ? toast(`Hello ${user}`, {
+                position: "top-right",
+              })
+            : (removeCookie("token"), navigate("/welcome"));
+        };
+        const currentUserData = axios.get(
+          `${process.env.REACT_APP_BASE_URL}/current_user`,
+          { withCredentials: true }
+        );
+        console.log(currentUserData); // Log the data to see what you're getting
+      
+        verifyCookie();
+      }, [cookies, navigate, removeCookie]);
+
+    return (
+    <body>          
+    <nav style={{ 
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'center', 
+      width: '100%', 
+      backgroundColor: '#F5F5F5', 
+      top: 0, 
+      left: 0, 
+      right: 0, 
+      zIndex: 1000, 
+      bottom: 0
+    }}>    
+        <div className="nav-logo" style={{ backgroundColor: '#F5F5F5' }}>
+            <img src={Logo} alt="Goodwill" style={{ width: '300px', cursor: 'pointer', margin: '5px 0 0 5px' }} onClick={() => navigate('/')} />
+        </div>
+        <div >
+        <button 
+                style={buttonStyle} 
+                onMouseEnter={(e) => e.target.style.opacity = buttonHoverStyle.opacity} 
+                onMouseLeave={(e) => e.target.style.opacity = buttonStyle.opacity} 
+                onClick={EditAccount}
+              >
+                Edit Account
+              </button>
+            <button 
+                style={buttonStyle} 
+                onMouseEnter={(e) => e.target.style.opacity = buttonHoverStyle.opacity} 
+                onMouseLeave={(e) => e.target.style.opacity = buttonStyle.opacity} 
+                onClick={Logout}
+              >
+                Logout
+              </button>
+        </div>
+        </nav>
+        <div className="content">
+            <table className="center-table">
+                <thead>
+                    <tr>
+                        <th>Receipt ID</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {receipts.map((receipt, index) => (
+                  <tr key={index}>
+                    <td className="border-top">{receipt.receipt_id}</td>
+                    <td className="border-top">{receipt.timestamp}</td>
+                    <td className="border-top">{receipt.store_number}</td>
+                  </tr>
+                ))}
+                </tbody>
+            </table>
+            <button className="yellow-button" onClick={handleAddNewDonation}>Add New Donation</button>
+            {isModalOpen && (
+  <div className="modal" onClick={() => setIsModalOpen(false)}>
+    <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <button className="close-button" onClick={() => setIsModalOpen(false)}>X</button>
+      <h2>Add New Donation</h2>
+      <div className="input-group">
+        <label htmlFor="receiptIdInput">Receipt ID:</label>    
+        <input
+          id="receiptIdInput"
+          value={receiptIdInput}
+          onChange={e => setReceiptIdInput(e.target.value)}
+        />
+      </div>
+      {receiptNotFound && <p style={{ color: 'red', marginBottom: '3%' }}>Receipt ID Not Found</p>}      
+      <button className="yellow-button" onClick={handleModalSubmit}>Submit</button>
+    </div>
+
+  </div>
+  
+)}
+    <Footer/>
+    </div>    
+  </body>
+    );
+    };
+    
+const buttonStyle = {       
+    backgroundColor: '#0053A0', /* Blue background */
+    border: 'none', /* Remove borders */
+    color: '#FFFFFF',
+    padding: '10px 20px',
+    textAlign: 'center', /* Centered text */
+    textDecoration: 'none', /* Remove underline */
+    display: 'inline-block', /* Get it to display inline */
+    fontSize: '14px',
+    margin: '4px 2px', /* Some margin */
+    cursor: 'pointer', /* Add a mouse pointer on hover */
+    borderRadius: '25px', /* Rounded corners */
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)', /* Add a subtle shadow */
+    transition: 'background-color 0.3s ease, color 0.3s ease', /* Add a smooth transition */
+    position: 'relative', /* Add position relative */
+    top: '0px', /* Move down 10px */
+    left: '0px', /* Move to the left 5px */
+    marginRight: '15px', /* Add 5px of space between buttons */
+    opacity: 1, /* Initial opacity */
+  };
+  
+  const buttonHoverStyle = {
+    opacity: 0.8, /* Opacity when hovered over */
+  };
+
+export default Home;

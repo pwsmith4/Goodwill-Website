@@ -1,0 +1,117 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.center-table {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+
+  .center-table th {
+    border: 1px solid #000000;
+    text-align:start;
+    padding: 10px;
+  }
+
+  .yellow-button {
+    background-color: #FFD700;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .modal {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    position: relative;
+    background: white;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  
+  .modal-content label {
+    font-weight: bold;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .modal-content button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: black;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px; /* Adjust as needed */
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .border-top {
+    border: 1px solid black;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+
+  .modal-content button:last-child {
+    background-color: #FFD700;
+    color: black;
+    display: flex;
+    margin:auto;
+    border-radius: 5px;
+    width: 30%; /* 3% wider */
+    height: 102%; /* 2% taller */
+  }

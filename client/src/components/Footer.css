@@ -1,0 +1,14 @@
+.actions-container {
+    border: none;   
+    margin-bottom: 1%;
+    flex-shrink:0;
+  }
+
+.about-us-text {
+    font-size: 1em;
+    color: #333; /* Darker color for a modern look */
+    line-height: 1.6;
+    font-weight: normal; /* Removes bolding */
+    text-align: justify;
+    margin-left: 1%;
+}

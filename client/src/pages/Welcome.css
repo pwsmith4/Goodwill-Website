@@ -1,0 +1,122 @@
+.welcome-info {
+  font-size: 1.2em;
+  text-align: center;
+  color: #666;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+}
+
+.slider {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    top: 0;
+    left: 0; 
+    right: 0; 
+  }
+  .slider img {
+    width: 100%;
+  }
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity .3s;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: white;
+  }
+
+  .slider-side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .slider-side.left {
+    left: 0;
+  }
+  
+  .slider-side.right {
+    right: 0;
+  }
+
+  .slider-button.prev {
+    left: 10px;
+  }
+  
+  .slider-button.next {
+    right: 10px;
+  }
+  
+  .slider:hover .slider-button {
+    opacity: 1;
+  }
+
+  .welcome {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-info {
+    font-size: 1.2em;
+    text-align: center;
+    color: #666;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .welcome {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+    font-weight: 300;
+    margin-top: 25px;
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 75px; /* adjust as needed */
+  }
+
+  .about-us, .links, .get-in-touch {
+    flex: 1 0 250px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #f9f9f9;
+  }
+  
+  .about-us h2, .links h2, .get-in-touch h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .about-us h3, .links h3, .get-in-touch h3 {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .full-width-image {
+    width: 100%;
+    display: block;
+  }
