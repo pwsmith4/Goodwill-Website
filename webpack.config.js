@@ -14,6 +14,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+          },
         },
       },
       {
@@ -27,6 +30,7 @@ module.exports = {
     ],
   },
   resolve: {
+    extensions: ['.js', '.jsx'],
     fallback: { 
     "path": require.resolve("path-browserify"),
     "fs": false,
