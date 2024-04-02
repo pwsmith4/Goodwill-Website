@@ -12,6 +12,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, 'server'),
         use: {
           loader: 'babel-loader',
           options: {
