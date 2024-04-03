@@ -1,63 +1,65 @@
 const path = require('path');
 
-module.exports = {
-  mode: 'development',
-  entry: './server/index.jsx',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+module.exports = [
+  {
+    mode: 'development',
+    entry: './server/index.jsx',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'serverBundle.js',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          include: [path.resolve(__dirname, 'server')],
+          use: {
+            loader: 'babel-loader',
+          },
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
   },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        include: [path.resolve(__dirname, 'server'), path.resolve(__dirname, 'client'), path.resolve(__dirname, 'client/src')],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+  {
+    mode: 'development',
+    entry: './client/src/index.jsx',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'clientBundle.js',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          include: [path.resolve(__dirname, 'client/src')],
+          use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env', '@babel/preset-react'],
+              },
+          },
         },
-        },
-      },
-      {
-        test: /\.html$/,
-        use: [
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+          },
           {
-            loader: "html-loader"
-          }
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'], // add this rule to handle CSS files
-      }
-    ],
+            test: /\.(png|jpe?g|gif)$/i,
+            use: [
+              {
+                loader: 'file-loader',
+              },
+            ],
+          },
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-    fallback: { 
-    "path": require.resolve("path-browserify"),
-    "fs": false,
-    "crypto": require.resolve("crypto-browserify"),
-    "assert": require.resolve("assert"),
-    "process": require.resolve("process"),
-    "url": require.resolve("url"),
-    "stream": require.resolve("stream-browserify"),
-    "os": require.resolve("os-browserify"),
-    "zlib": require.resolve("browserify-zlib"),
-    "tls": require.resolve("tls-browserify"),
-    "net": require.resolve("net-browserify"),
-    "querystring": require.resolve("querystring-es3"),
-    "http": require.resolve("stream-http"),
-    "aws-sdk": require.resolve("aws-sdk"),
-    "nock": require.resolve("nock"),
-    "child_process": false,
-    "mock-aws-s3": require.resolve("mock-aws-s3"),
-    "https": require.resolve("https-browserify"),
-    "timers": require.resolve("timers-browserify"),
-    "constants": require.resolve("constants-browserify"),
-
-  }
-  }
-};
+];
