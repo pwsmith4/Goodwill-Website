@@ -51,7 +51,14 @@ module.exports = [
             test: /\.css$/,
             exclude: /node_modules/,
             include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'client/src')],
-            use: ['style-loader', 'css-loader'],
+            use: [{ loader: 'style-loader' },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
+            },
+        ],
           },
           {
             test: /\.(png|jpe?g|gif)$/i,
