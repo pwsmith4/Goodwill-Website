@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f2fc3aa4.css",
+    "main.js": "/static/js/main.dbd3fac7.js",
+    "static/media/img1.jpg": "/static/media/img1.5510e41dcb64053b2204.jpg",
+    "static/media/img2.jpg": "/static/media/img2.555191dc052de26bece0.jpg",
+    "static/media/img3.jpg": "/static/media/img3.07062ee9bf6b52da55e4.jpg",
+    "static/media/Goodwill-Logo.png": "/static/media/Goodwill-Logo.ab307ea5b6ab6e9be9cc.png",
+    "index.html": "/index.html",
+    "main.f2fc3aa4.css.map": "/static/css/main.f2fc3aa4.css.map",
+    "main.dbd3fac7.js.map": "/static/js/main.dbd3fac7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2fc3aa4.css",
+    "static/js/main.dbd3fac7.js"
+  ]
+}
