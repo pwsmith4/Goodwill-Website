@@ -51,26 +51,17 @@ module.exports = [
             test: /\.css$/,
             exclude: /node_modules/,
             include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'client/src')],
-            use: [{ loader: 'style-loader' },
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-              },
-            },
-        ],
-          },
+            use: ['style-loader', 'css-loader'],
+        },
+          
           {
             test: /\.(png|jpe?g|gif)$/i,
             use: [
               {
                 loader: 'file-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                  },
               },
             ],
-          },
+          }
       ],
     },
     resolve: {
