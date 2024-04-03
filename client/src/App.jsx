@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = React.useState(null);
 
   return (
-    <div className="App">
+    <div>
       <Router>
         <UserContext.Provider value={{ user, setUser }}>
         <Routes>
