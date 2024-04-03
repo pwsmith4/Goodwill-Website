@@ -39,7 +39,7 @@ module.exports = [
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'src')],
+          include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'src'), path.resolve(__dirname, 'client/src'), ],
           use: {
             loader: 'babel-loader',
             options: {
@@ -50,7 +50,7 @@ module.exports = [
         {
             test: /\.css$/,
             exclude: /node_modules/,
-            include: [path.resolve(__dirname, 'client'),path.resolve(__dirname, 'src')],
+            include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'src'), path.resolve(__dirname, 'client/src'),],
             use: ['style-loader', 'css-loader'],
         },
           
