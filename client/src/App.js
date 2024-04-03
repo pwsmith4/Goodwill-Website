@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login, Signup} from './pages';
 import React from 'react';
@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = React.useState(null);
 
   return (
-    <div className="App">
+    <div>
       <Router>
         <UserContext.Provider value={{ user, setUser }}>
         <Routes>
