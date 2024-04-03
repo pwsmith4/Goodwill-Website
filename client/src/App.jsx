@@ -6,7 +6,7 @@ import Welcome from './pages/Welcome';
 import Home from './pages/Home';
 import Privacy from './pages/Privacy';
 import EditAccount from './pages/EditAccount';
-import UserContext from '../src/context/UserContext';
+import UserContext from './context/UserContext';
 
 function App() {
   const [user, setUser] = React.useState(null);
