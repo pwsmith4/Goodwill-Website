@@ -36,6 +36,7 @@ module.exports = [
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
+          include: [path.resolve(__dirname, 'client')],
           use: {
             loader: 'babel-loader',
             options: {
@@ -45,6 +46,8 @@ module.exports = [
         },
         {
             test: /\.css$/,
+            exclude: /node_modules/,
+            include: [path.resolve(__dirname, 'client')],
             use: ['style-loader', 'css-loader'],
           },
           {
