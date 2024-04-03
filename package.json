@@ -2,7 +2,7 @@
   "name": "goodwill2",
   "version": "1.0.0",
   "private": true,
-  "main": "index.jsx",
+  "main": "./server/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client/ && npm install && npm run build"
