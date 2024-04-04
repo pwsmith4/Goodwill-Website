@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 const app = express();
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
@@ -26,7 +27,6 @@ app.use(
     credentials: true,
   })
 );
-//app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.use(cookieParser());
 
