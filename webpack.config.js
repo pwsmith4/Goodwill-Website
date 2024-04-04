@@ -8,6 +8,9 @@ module.exports = [
       path: path.resolve(__dirname, 'dist'),
       filename: 'serverBundle.js',
     },
+    resolve: {
+        extensions: ['.js', '.jsx'], // Add .jsx to the extensions
+      },
     module: {
       rules: [
         {
@@ -17,12 +20,11 @@ module.exports = [
           use: {
             loader: 'babel-loader',
           },
+
         },
       ],
     },
-    resolve: {
-        extensions: ['.js', '.jsx'],
-      },
+
   },
   {
     mode: 'development',
@@ -31,6 +33,9 @@ module.exports = [
       path: path.resolve(__dirname, 'dist'),
       filename: 'clientBundle.js',
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+      },
     module: {
       rules: [
         { test: /\.ts$/, use: 'ts-loader' },
@@ -62,8 +67,6 @@ module.exports = [
           }
       ],
     },
-    resolve: {
-        extensions: ['.js', '.jsx'],
-      },
+
   },
 ];
