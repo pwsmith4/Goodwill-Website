@@ -40,9 +40,8 @@ module.exports = [
       rules: [
         { test: /\.ts$/, use: 'ts-loader' },
         {
-          test: /\.(js|jsx)$/,
+          test: /\.jsx$/,
           exclude: /node_modules/,
-          include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'src'), path.resolve(__dirname, 'client/src'), ],
           use: {
             loader: 'babel-loader',
             options: {
