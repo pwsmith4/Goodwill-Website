@@ -12,7 +12,6 @@ function App() {
   const [user, setUser] = React.useState(null);
 
   return (
-    <div className="App">
       <Router>
         <UserContext.Provider value={{ user, setUser }}>
         <Routes>
@@ -25,7 +24,6 @@ function App() {
         </Routes>
         </UserContext.Provider>
       </Router>
-    </div>
   );
 }
 
