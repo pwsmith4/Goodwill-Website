@@ -9,8 +9,8 @@ module.exports = [
       filename: 'serverBundle.js',
     },
     resolve: {
-        extensions: ['.js', '.jsx'], // Add .jsx to the extensions
-      },
+      extensions: ['.js', '.jsx'],
+    },
     module: {
       rules: [
         {
@@ -19,16 +19,17 @@ module.exports = [
           include: [path.resolve(__dirname, 'server')],
           use: {
             loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
           },
-
         },
         {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader'], // Use style-loader and css-loader for .css files
-          },
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
       ],
     },
-
   },
   {
     mode: 'development',
@@ -38,36 +39,33 @@ module.exports = [
       filename: 'clientBundle.js',
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
-      },
-      module: {
-        rules: [
-          {
-            test: /\.jsx?$/, // Match both .js and .jsx files
-            exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader', // Use babel-loader for .jsx files
-              options: {
-                presets: ['@babel/preset-env', '@babel/preset-react'],
-              },
+      extensions: ['.js', '.jsx'],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
-          {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader'], // Use style-loader and css-loader for .css files
-          },
-        
-          
-          {
-            test: /\.(png|jpe?g|gif)$/i,
-            use: [
-              {
-                loader: 'file-loader',
-              },
-            ],
-          }
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
       ],
     },
-
   },
 ];
