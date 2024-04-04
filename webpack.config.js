@@ -8,13 +8,8 @@ module.exports = [
       path: path.resolve(__dirname, 'dist'),
       filename: 'serverBundle.js',
     },
-    resolve: {
-        extensions: ['','.js', '.jsx'],
-      },
     module: {
       rules: [
-        { test: /\.css$/, use: 'css-loader' },
-      { test: /\.ts$/, use: 'ts-loader' },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
@@ -25,6 +20,9 @@ module.exports = [
         },
       ],
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+      },
   },
   {
     mode: 'development',
@@ -64,6 +62,8 @@ module.exports = [
           }
       ],
     },
-
+    resolve: {
+        extensions: ['.js', '.jsx'],
+      },
   },
 ];
