@@ -36,25 +36,22 @@ module.exports = [
     resolve: {
         extensions: ['.js', '.jsx'],
       },
-    module: {
-      rules: [
-        { test: /\.ts$/, use: 'ts-loader' },
-        {
-          test: /\.jsx$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
+      module: {
+        rules: [
+          {
+            test: /\.jsx?$/, // Match both .js and .jsx files
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader', // Use babel-loader for .jsx files
+              options: {
                 presets: ['@babel/preset-env', '@babel/preset-react'],
               },
+            },
           },
-        },
-        {
+          {
             test: /\.css$/,
-            exclude: /node_modules/,
-            include: [path.resolve(__dirname, 'client'), path.resolve(__dirname, 'src'), path.resolve(__dirname, 'client/src'),],
-            use: ['style-loader', 'css-loader'],
-        },
+            use: ['style-loader', 'css-loader'], // Use style-loader and css-loader for .css files
+          },
           
           {
             test: /\.(png|jpe?g|gif)$/i,
