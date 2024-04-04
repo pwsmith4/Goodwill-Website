@@ -5,7 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "start": "node index.jsx",
-    "heroku-postbuild": "cd ../client && npm install && npm run build"
+    "heroku-postbuild": "cd ../client && npm install && npm run build",
+    "postinstall": "npm rebuild bcrypt"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
