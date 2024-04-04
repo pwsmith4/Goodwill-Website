@@ -61,7 +61,6 @@
     "babel-eslint": "^10.0.1",
     "babel-extract-comments": "^1.0.0",
     "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.5",
     "babel-plugin-istanbul": "^5.2.0",
     "babel-plugin-jest-hoist": "^24.9.0",
     "babel-plugin-macros": "^2.8.0",
@@ -726,7 +725,6 @@
     "postcss-modules-local-by-default": "^4.0.4",
     "postcss-modules-scope": "^3.1.1",
     "postcss-modules-values": "^4.0.0",
-    "webpack-cli": "^5.1.4",
     "postcss-nesting": "^12.1.0",
     "postcss-normalize": "^10.0.1",
     "postcss-normalize-charset": "^6.0.2",
@@ -1006,6 +1004,7 @@
     "web-vitals": "^2.1.4",
     "webidl-conversions": "^4.0.2",
     "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-middleware": "^7.2.0",
     "webpack-log": "^2.0.0",
     "webpack-sources": "^1.4.3",
@@ -1075,5 +1074,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "babel-loader": "^9.1.3"
   }
 }
