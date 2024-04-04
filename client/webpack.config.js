@@ -8,11 +8,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    plugins: [
-        new HtmlWebpackPlugin({
-          template: './src/index.html',
-        }),
-      ],
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -26,6 +21,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
