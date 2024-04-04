@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.jsx",
     "heroku-postbuild": "cd ../client && npm install && npm run build",
-    "postinstall": "npm rebuild bcrypt"
+    "postinstall": "npm rebuild bcrypt --build-from-source"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
