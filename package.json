@@ -1,17 +1,18 @@
 {
+  "homepage": "https://pwsmith4.github.io/Goodwill-Website",
   "name": "goodwill2",
   "version": "1.0.0",
   "private": true,
   "main": "./server/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d client/build"
   },
   "author": "",
   "license": "ISC",
   "description": "",
-  "devDependencies": {
-  },
   "engines": {
     "node": "20.11.1"
   },
@@ -27,6 +28,7 @@
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.11.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.1.1",
     "html-loader": "^5.0.0",
     "https-browserify": "^1.0.0",
     "mock-aws-s3": "^4.0.2",
@@ -43,7 +45,7 @@
     "tls-browserify": "^0.2.2",
     "ts-loader": "^9.5.1",
     "url": "^0.11.3",
-    "webpack-cli": "^4.10.0",
-    "webpack": "^5.91.0"
+    "webpack": "^5.91.0",
+    "webpack-cli": "^4.10.0"
   }
 }
