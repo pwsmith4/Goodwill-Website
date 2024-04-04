@@ -1,3 +1,4 @@
+
 const path = require('path');
 
 module.exports = [
@@ -16,7 +17,6 @@ module.exports = [
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          include: [path.resolve(__dirname, 'server')],
           use: {
             loader: 'babel-loader',
             options: {
@@ -44,7 +44,7 @@ module.exports = [
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js|jsx)?$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
