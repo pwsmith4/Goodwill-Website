@@ -3,7 +3,7 @@
   "name": "goodwill2",
   "version": "1.0.0",
   "private": true,
-  "main": "./server/index.jsx",
+  "main": "./server/index.js",
   "scripts": {
     "client": "cd client && npm start",
     "server": "cd server && npm start",
