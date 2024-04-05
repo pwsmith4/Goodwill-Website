@@ -57,7 +57,7 @@ import { states } from "../components/states";
 
       try {
         const { data } = await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/signup`,
+          `${process.env.REACT_APP_BASE_URL}signup`,
           {
             ...inputValue,
           },
