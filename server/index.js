@@ -9,7 +9,7 @@ const authRoute = require("./Routes/AuthRoute");
 //const { MONGO_URL, PORT } = process.env;
 const PORT = process.env.PORT | 4000;
 mongoose
-  .connect("mongodb+srv://gamepark1:Il0vegames@cluster0.g6tplxp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("MongoDB is connected successfully"))
   .catch((err) => console.error("Error: " +err));
 
