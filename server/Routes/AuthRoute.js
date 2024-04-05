@@ -3,8 +3,8 @@ const { userVerification } = require("../Middlewares/AuthMiddleware");
 const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
 const User = require('../Models/UserModel');
-const path = require("path");
-require("dotenv").config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 router.post("/signup", Signup);
 router.post("/login", Login)
