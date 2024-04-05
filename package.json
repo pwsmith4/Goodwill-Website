@@ -16,7 +16,14 @@
     "node": "16.x"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "assert": "^2.1.0",
+    "bcryptjs": "^2.4.3",
+    "browserify-zlib": "^0.2.0",
+    "path-browserify": "^1.0.1",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "url": "^0.11.3",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.1",

@@ -4,13 +4,28 @@ const path = require('path');
 module.exports = [
   {
     mode: 'development',
-    entry: './server/index.jsx',
+    entry: './server/index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'serverBundle.js',
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      fallback: { 
+        "url": require.resolve("url/"),
+      "path": require.resolve("path-browserify"),
+      "util": require.resolve("util/"),
+      "stream": require.resolve("stream-browserify"),
+      "fs": false,
+      "crypto": false,
+      "querystring": require.resolve("querystring-es3"),
+      "http": false,
+      "os": false,
+      "net": false,
+      "zlib": require.resolve("browserify-zlib"),
+      "assert": require.resolve("assert/"),
+
+    },
     },
     module: {
       rules: [
@@ -40,6 +55,21 @@ module.exports = [
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      fallback: { 
+        "url": require.resolve("url/"),
+      "path": require.resolve("path-browserify"),
+      "util": require.resolve("util/"),
+      "stream": require.resolve("stream-browserify"),
+      "fs": false,
+      "crypto": false,
+      "querystring": require.resolve("querystring-es3"),
+      "http": false,
+      "os": false,
+      "net": false,
+      "zlib": require.resolve("browserify-zlib"),
+      "assert": require.resolve("assert/"),
+
+      },
     },
     module: {
       rules: [
