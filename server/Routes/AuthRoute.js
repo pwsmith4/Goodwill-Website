@@ -11,7 +11,7 @@ router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); // Add this line
 
 router.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
 });
 
 router.get('/api/receipt_ids', async (req, res) => {
