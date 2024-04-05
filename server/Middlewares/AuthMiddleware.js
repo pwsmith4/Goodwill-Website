@@ -18,7 +18,7 @@ module.exports.userVerification = (req, res) => {
     }
   })
 } catch (error) {
-  res.status(501).send('Server error');
   console.error("Error: " +error);
+  res.status(501).send('Server error');
 }
 }

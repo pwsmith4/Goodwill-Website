@@ -3,7 +3,7 @@ const { userVerification } = require("../Middlewares/AuthMiddleware");
 const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
 const User = require('../Models/UserModel');
-
+const path = require("path");
 
 router.post("/signup", Signup);
 router.post("/login", Login)

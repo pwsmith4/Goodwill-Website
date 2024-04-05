@@ -9,11 +9,11 @@ const authRoute = require("./Routes/AuthRoute");
 const { MONGO_URL, PORT } = process.env;
 
 mongoose
-  .connect("mongodb+srv://gamepark1:Il0vegames@cluster0.g6tplxp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("MongoDB is  connected successfully"))
+  .then(() => console.log("MongoDB is connected successfully"))
   .catch((err) => console.error("Error: " +err));
 
 app.listen(PORT, () => {
@@ -27,8 +27,6 @@ app.use(
     credentials: true,
   })
 );
-
-
 
 app.use(cookieParser());
 
