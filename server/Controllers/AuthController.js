@@ -21,6 +21,7 @@ module.exports.Signup = async (req, res, next) => {
       .json({ message: "User signed in successfully", success: true, user });
     next();
   } catch (error) {
+    console.error(error);
     res.status(501).json({ message: "Server error" });
   }
 };  
