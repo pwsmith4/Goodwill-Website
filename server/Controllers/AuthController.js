@@ -21,7 +21,7 @@ module.exports.Signup = async (req, res, next) => {
       .json({ message: "User signed in successfully", success: true, user });
     next();
   } catch (error) {
-    res.status(500).json({ message: "Server error" });
+    res.status(501).json({ message: "Server error" });
   }
 };  
 module.exports.EditAccount = async (req, res, next) => {
@@ -34,7 +34,7 @@ module.exports.EditAccount = async (req, res, next) => {
         res.status(200).json({ message: "User information retrieved successfully", user });
         next();
     } catch (error) {
-      res.status(500).json({ message: "Server error" });
+      res.status(501).json({ message: "Server error" });
     }
 };
 
@@ -68,7 +68,7 @@ module.exports.UpdateAccount = async (req, res, next) => {
       res.status(200).json({ message: "User information updated successfully", success: true, user: userData });
       next();
     } catch (error) {
-      res.status(500).json({ message: "Server error" });
+      res.status(501).json({ message: "Server error" });
     }
   };
 
@@ -83,7 +83,7 @@ module.exports.UpdateAccount = async (req, res, next) => {
       res.status(200).json({ user: user.toObject() });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Server error" });
+      res.status(501).json({ message: "Server error" });
     }
   };
 
@@ -110,6 +110,6 @@ module.exports.Login = async (req, res, next) => {
        res.status(201).json({ message: "User logged in successfully", success: true, user});
        next()
     } catch (error) {
-      res.status(500).json({ message: "Server error" });
+      res.status(501).json({ message: "Server error" });
     }
   }
