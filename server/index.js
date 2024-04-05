@@ -29,7 +29,7 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-app.use("/", authRoute);
+app.use(authRoute);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
