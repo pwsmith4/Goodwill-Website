@@ -8,14 +8,16 @@ const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
 //const { MONGO_URL, PORT } = process.env;
 const PORT = process.env.PORT | 4000;
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("MongoDB is connected successfully"))
-  .catch((err) => console.error("Error: " +err));
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+  .catch((err) => {
+    console.error("Error: " + err);
+    app.listen(PORT, () => {
+      console.log(`Server is listening on port ${PORT}`);
+    });
+  });
 
 app.use(
   cors({
