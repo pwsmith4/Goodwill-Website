@@ -71,7 +71,7 @@ import { states } from "../components/states";
           handleError(message);
         }
       } catch (error) {
-        console.log(error);
+        console.log("Error: " +error);
       }
       setInputValue({
         ...inputValue,
