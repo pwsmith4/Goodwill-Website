@@ -56,8 +56,11 @@ import { states } from "../components/states";
       setIsFormInvalid(false); // Set isFormInvalid to false
 
       try {
+        function joinUrl(base, path) {
+          return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
+        }
         const { data } = await axios.post(
-          `${process.env.REACT_APP_BASE_URL}/signup`,
+          joinUrl(process.env.REACT_APP_BASE_URL, 'signup'),
           {
             ...inputValue,
           },
