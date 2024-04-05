@@ -6,8 +6,8 @@ const User = require('../Models/UserModel');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-router.post("/signup", Signup);
-router.post("/login", Login)
+router.post('/signup', Signup);
+router.post('/login', Login)
 router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); // Add this line
 
