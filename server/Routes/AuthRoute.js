@@ -53,7 +53,7 @@ router.put('/users/:id', async (req, res) => {
     await user.save();
     res.send({ user });
   } catch (error) {
-    res.status(500).send('Server error');
+    res.status(503).send('Server error');
   }
 });
 

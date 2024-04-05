@@ -83,7 +83,7 @@ module.exports.UpdateAccount = async (req, res, next) => {
       res.status(200).json({ user: user.toObject() });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Server error" });
+      res.status(504).json({ message: "Server error" });
     }
   };
 
