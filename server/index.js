@@ -6,10 +6,10 @@ const path = require("path");
 const app = express();
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoute");
-const { MONGO_URL, PORT } = process.env;
-
+//const { MONGO_URL, PORT } = process.env;
+const PORT = 4000;
 mongoose
-  .connect(MONGO_URL, {
+  .connect("mongodb+srv://gamepark1:Il0vegames@cluster0.g6tplxp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
