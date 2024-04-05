@@ -4,6 +4,7 @@ const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
 const User = require('../Models/UserModel');
 const path = require("path");
+require("dotenv").config();
 
 router.post("/signup", Signup);
 router.post("/login", Login)

@@ -1,6 +1,7 @@
 const User = require("../Models/UserModel");
 const { createSecretToken } = require("../util/SecretToken");
 const bcrypt = require("bcryptjs");
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 module.exports.Signup = async (req, res, next) => {
@@ -21,7 +22,7 @@ module.exports.Signup = async (req, res, next) => {
       .json({ message: "User signed in successfully", success: true, user });
     next();
   } catch (error) {
-    console.error(error);
+    console.error("ERRROR: " + error);
     res.status(501).json({ message: "Server error" });
   }
 };  
