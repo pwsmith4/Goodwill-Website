@@ -2,9 +2,9 @@
   "name": "server",
   "version": "0.0.0",
   "private": true,
-  "main": "index.jsx",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.jsx",
+    "start": "node index.js",
     "heroku-postbuild": "cd ../client && npm install && npm run build",
     "postinstall": "npm rebuild bcrypt --build-from-source"
   },
