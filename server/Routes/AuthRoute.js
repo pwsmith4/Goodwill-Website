@@ -15,6 +15,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/api/receipt_ids', async (req, res) => {
+  try{
   console.log(`${process.env.REACT_APP_BASE_URL}/api/receipt_ids?id=${req.query.id}`);
 
   const test = await Receipt_id.findOne({ 'receipt_id': req.query.id });  
@@ -25,9 +26,13 @@ router.get('/api/receipt_ids', async (req, res) => {
   }
 
   res.send(test);
+} catch (error) {
+  res.status(501).send('Server error');
+}
 });
 
 router.get('/api/id', async (req, res) => {
+  try{
   console.log(`${process.env.REACT_APP_BASE_URL}/api/id?id=${req.query.id}`);
   console.log("ID sent to server: " + req.query.id);
 
@@ -38,6 +43,9 @@ router.get('/api/id', async (req, res) => {
   }
 
   res.send(test);
+} catch (error) {
+  res.status(501).send('Server error');
+}
 });
 
 router.put('/users/:id', async (req, res) => {
@@ -53,11 +61,12 @@ router.put('/users/:id', async (req, res) => {
     await user.save();
     res.send({ user });
   } catch (error) {
-    res.status(500).send('Server error');
+    res.status(501).send('Server error');
   }
 });
 
 router.get('/current_user', userVerification, async (req, res) => {
+  try{
   console.log("ID sent to server: " + req.query.id);
     // Assuming req.userId contains the id of the current user
     const user = await User.findById(req.userId);
@@ -69,5 +78,8 @@ router.get('/current_user', userVerification, async (req, res) => {
     delete userData.password;
   
     res.send({ user: userData });
+  } catch (error) {
+    res.status(501).send('Server error');
+  }
   });
 module.exports = router;
