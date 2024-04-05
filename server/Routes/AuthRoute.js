@@ -9,7 +9,10 @@ router.post("/signup", Signup);
 router.post("/login", Login)
 router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); // Add this line
-router.get('/', userVerification);
+
+router.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 router.get('/api/receipt_ids', async (req, res) => {
   console.log(`${process.env.REACT_APP_BASE_URL}/api/receipt_ids?id=${req.query.id}`);
