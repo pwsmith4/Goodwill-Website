@@ -25,7 +25,7 @@ const Home = () => {
             { withCredentials: true }
           );
           const user = userData.user;
-
+          console.log("User: ", user);
           const receiptPromises = user.receipts.map(receiptId =>
             axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
               params: { id: receiptId },
@@ -38,7 +38,7 @@ const Home = () => {
           const receipts = receiptResponses.map(response => response.data);
             setReceipts(receipts);
         } catch (error) {
-          console.error(error);
+          console.error("Error" + error);
         }
       };
     
