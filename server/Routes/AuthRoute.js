@@ -4,13 +4,14 @@ const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
 const User = require('../Models/UserModel');
 
+
 router.post("/signup", Signup);
 router.post("/login", Login)
 router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); // Add this line
 
-router.get('/', (req, res) => {
-  res.send('Hello, world!');
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
 
 router.get('/api/receipt_ids', async (req, res) => {
