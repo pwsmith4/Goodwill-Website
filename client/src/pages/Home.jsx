@@ -179,7 +179,9 @@ const Home = () => {
                 ))}
                 </tbody>
             </table>
+            <div style={{ width: '100%' }}>
             <button className="yellow-button" onClick={handleAddNewDonation}>Add New Donation</button>
+            </div>
             {isModalOpen && (
   <div className="modal" onClick={() => setIsModalOpen(false)}>
     <div className="modal-content" onClick={e => e.stopPropagation()}>
