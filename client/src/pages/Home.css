@@ -1,14 +1,14 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 60vh;
+  min-height: 80vh;
 }
 
 .center-table {
@@ -30,14 +30,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 0px; /* Adjust as needed */
   }
 
   .yellow-button {
     background-color: #FFD700;
     border: none;
     color: black;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
