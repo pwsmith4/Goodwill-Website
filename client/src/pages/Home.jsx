@@ -201,8 +201,16 @@ const Home = () => {
   </div>
   
 )}
-    <Footer style={{left:0, bottom:0}}/>
-    </div>    
+<Footer style={{ 
+  position: 'fixed', 
+  left: 0, 
+  bottom: 0, 
+  width: '100%', 
+  backgroundColor: 'blue', 
+  color: 'white', 
+  textAlign: 'center' 
+}}/>
+  </div>    
   </body>
     );
     };
