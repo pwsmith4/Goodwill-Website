@@ -201,7 +201,7 @@ const Home = () => {
   </div>
   
 )}
-    <Footer/>
+    <Footer style={{left:0, bottom:0}}/>
     </div>    
   </body>
     );
