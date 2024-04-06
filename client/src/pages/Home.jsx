@@ -84,9 +84,10 @@ const Home = () => {
     };
 
     const updateDonationValue = async (id, donationValue) => {
+      console.log("Updating Donation Value");
       try {
         const response = await axios.put(
-          `${process.env.REACT_APP_BASE_URL}/api/receipt_id/${id}`,
+          `${process.env.REACT_APP_BASE_URL}/api/receipt_ids/${id}`,
           { donation_value: donationValue },
           { withCredentials: true }
         );
