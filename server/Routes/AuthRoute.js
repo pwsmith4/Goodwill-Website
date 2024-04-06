@@ -12,6 +12,7 @@ router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); 
 
 router.put('/api/receipt_ids/:id', async (req, res) => {
+  console.log("updating receipt donation value: " + req.params.id);
   try {
     const receipt = await Receipt_id.findById(req.params.id);
     if (!receipt) {
