@@ -188,17 +188,21 @@ const Home = () => {
                     <td className="border-top">{receipt.store_number}</td>
                     <td className="border-top"></td>
                     <td className="border-top">
-                      <input 
-                        type="number" 
-                        style={{
-                          width: '100%',
-                          appearance: 'textfield',
-                          WebkitAppearance: 'none',
-                        }}
-                        defaultValue={receipt.donation_value} 
-                        onChange={(e) => handleDonationValueChange(e, receipt.receipt_id)}
-                      />
-                    </td>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <span>$</span>
+    <input 
+      type="number" 
+      style={{
+        width: '90%',
+        marginLeft: '10px',
+        appearance: 'textfield',
+        WebkitAppearance: 'none',
+      }}
+      defaultValue={receipt.donation_value} 
+      onChange={(e) => handleDonationValueChange(e, receipt.receipt_id)}
+    />
+  </div>
+</td>
                   </tr>
                 ))}
                 </tbody>
