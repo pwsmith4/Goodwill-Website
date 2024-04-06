@@ -69,13 +69,12 @@ function Privacy() {
             justifyContent: 'space-between', 
             alignItems: 'center', 
             width: '100%', 
-            backgroundColor: '#F5F5F5', 
+            backgroundColor: 'white', 
             top: 0, 
             left: 0, 
             right: 0, 
-            zIndex: 1000 
         }}>      
-    <div className="nav-logo" style={{ backgroundColor: '#F5F5F5' }}>
+    <div className="nav-logo">
       <img src={Logo} alt="Goodwill" style={{ width: '300px', cursor: 'pointer', margin: '5px 0 0 5px' }} onClick={() => navigate('/')} />
     </div>
     <div>
@@ -103,13 +102,12 @@ function Privacy() {
         justifyContent: 'space-between', 
         alignItems: 'center', 
         width: '100%', 
-        backgroundColor: '#F5F5F5', 
+        backgroundColor: 'white', 
         top: 0, 
         left: 0, 
         right: 0, 
-        zIndex: 1000 
     }}>      
-  <div className="nav-logo" style={{ backgroundColor: '#F5F5F5' }}>
+  <div className="nav-logo">
     <img src={Logo} alt="Goodwill" style={{ width: '300px', cursor: 'pointer', margin: '5px 0 0 5px' }} onClick={() => navigate('/')} />
     </div>
     <div>
