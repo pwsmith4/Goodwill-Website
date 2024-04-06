@@ -9,7 +9,23 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 router.post('/signup', Signup);
 router.post('/login', Login)
 router.post('/', userVerification)
-router.post('/update_account', UpdateAccount); // Add this line
+router.post('/update_account', UpdateAccount); 
+
+router.put('/api/receipt_ids/:id', async (req, res) => {
+  try {
+    const receipt = await Receipt_id.findById(req.params.id);
+    if (!receipt) {
+      return res.status(404).send('Receipt not found');
+    }
+
+    receipt.donation_value = req.body.donation_value;
+    await receipt.save();
+
+    res.send(receipt);
+  } catch (error) {
+    res.status(501).send('Server error');
+  }
+});
 
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));

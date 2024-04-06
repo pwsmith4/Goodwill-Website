@@ -83,15 +83,18 @@ const Home = () => {
       }
     };
 
-    const handleDonationValueChange = (event, receiptId) => {
-      // Find the receipt with the matching ID
-      const receipt = receipts.find(receipt => receipt.receipt_id === receiptId);
+    const updateDonationValue = async (id, donationValue) => {
+      try {
+        const response = await axios.put(
+          `${process.env.REACT_APP_BASE_URL}/api/receipt_id/${id}`,
+          { donation_value: donationValue },
+          { withCredentials: true }
+        );
     
-      // Update the donation value
-      receipt.donation_value = event.target.value;
-    
-      // Update the state
-      setReceipts([...receipts]);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     const handleAddNewDonation = () => {
@@ -188,21 +191,21 @@ const Home = () => {
                     <td className="border-top">{receipt.store_number}</td>
                     <td className="border-top"></td>
                     <td className="border-top">
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <span>$</span>
-    <input 
-      type="number" 
-      style={{
-        width: '90%',
-        marginLeft: '10px',
-        appearance: 'textfield',
-        WebkitAppearance: 'none',
-      }}
-      defaultValue={receipt.donation_value} 
-      onChange={(e) => handleDonationValueChange(e, receipt.receipt_id)}
-    />
-  </div>
-</td>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <span>$</span>
+                      <input 
+                        type="number" 
+                        style={{
+                          width: '90%',
+                          marginLeft: '10px',
+                          appearance: 'textfield',
+                          WebkitAppearance: 'none',
+                        }}
+                        defaultValue={receipt.donation_value} 
+                        onChange={(e) => updateDonationValue(receipt.receipt_id, e)}
+                      />
+                    </div>
+                  </td>
                   </tr>
                 ))}
                 </tbody>
