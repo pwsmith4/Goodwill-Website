@@ -191,7 +191,7 @@ const EditAccount = () => {
               placeholder="Enter your first name"
               onChange={handleOnChange}
             />
-              <span className="required-text">*required</span>
+              <span className="required-text">(Required)</span>
           </div>
           <div className="input-group">
             <label className="signup-label" htmlFor="lastName">Last Name: </label>
@@ -215,7 +215,7 @@ const EditAccount = () => {
               placeholder="Enter your phone number"
               onChange={handleOnChange}
             />
-              <span className="required-text">*required</span>
+              <span className="required-text">(Required)</span>
           </div>
           <div className="input-group">
             <label className="signup-label" htmlFor="email">Email: </label>
@@ -227,7 +227,7 @@ const EditAccount = () => {
               placeholder="Enter your email"
               onChange={handleOnChange}
             />
-              <span className="required-text">*required</span>
+              <span className="required-text">(Required)</span>
           </div>            
             <div className="separate">
             <h1>Address</h1>
