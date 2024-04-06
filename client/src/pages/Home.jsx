@@ -125,7 +125,7 @@ const Home = () => {
 
     return (
     <body>          
-    <nav style={{ 
+    <div style={{ 
       display: 'flex', 
       justifyContent: 'space-between', 
       alignItems: 'center', 
@@ -137,7 +137,7 @@ const Home = () => {
       zIndex: 1000, 
       bottom: 0
     }}>    
-        <div className="nav-logo" style={{ backgroundColor: '#F5F5F5' }}>
+        <div className="nav-logo">
             <img src={Logo} alt="Goodwill" style={{ width: '300px', cursor: 'pointer', margin: '5px 0 0 5px' }} onClick={() => navigate('/')} />
         </div>
         <div >
@@ -158,7 +158,7 @@ const Home = () => {
                 Logout
               </button>
         </div>
-        </nav>
+        </div>
         <div className="content">
             <table className="center-table">
                 <thead>
