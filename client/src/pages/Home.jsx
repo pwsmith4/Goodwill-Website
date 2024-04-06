@@ -126,7 +126,7 @@ const Home = () => {
     return (
     <body>          
     <nav style={{ 
-      display: isModalOpen ? 'none' : 'flex', 
+      display: 'flex', 
       justifyContent: 'space-between', 
       alignItems: 'center', 
       width: '100%', 
