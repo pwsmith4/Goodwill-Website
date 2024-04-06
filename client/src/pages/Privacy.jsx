@@ -216,7 +216,7 @@ const scrollStyle = {
     padding: '10px 20px',
     textAlign: 'center', /* Centered text */
     textDecoration: 'none', /* Remove underline */
-    display: 'inline-block', /* Get it to display inline */
+    display: 'flex', /* Get it to display inline */
     fontSize: '14px',
     margin: '4px 2px', /* Some margin */
     cursor: 'pointer', /* Add a mouse pointer on hover */
@@ -231,7 +231,7 @@ const scrollStyle = {
     scrollBehavior: 'smooth',
     marginRight: '10px', /* Add 5px of space between buttons */
     opacity: 1, /* Initial opacity */
-    justifyContent: 'end'
+    justifyContent: 'center'
 }
 const buttonStyle = {       
     backgroundColor: '#0053A0', /* Blue background */
