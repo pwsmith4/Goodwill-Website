@@ -190,8 +190,9 @@ const Home = () => {
                       <input 
                         type="number" 
                         style={{
-                          width: '100%',
-                          appearance: 'none'
+                          width: '90%',
+                          appearance: 'textfield',
+                          WebkitAppearance: 'none',
                         }}
                         defaultValue={receipt.donation_value} 
                         onChange={(e) => handleDonationValueChange(e, receipt.receipt_id)}
@@ -210,7 +211,7 @@ const Home = () => {
       <button className="close-button" onClick={() => setIsModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Add New Donation</h2>
       <div className="input-group">
-        <label htmlFor="receiptIdInput">Receipt ID:</label>    
+        <label htmlFor="receiptIdInput" style={{ marginRight: '10px' }}>Receipt ID:</label>    
         <input
           id="receiptIdInput"
           value={receiptIdInput}
