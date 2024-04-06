@@ -185,7 +185,7 @@ const Home = () => {
   <div className="modal" onClick={() => setIsModalOpen(false)}>
     <div className="modal-content" onClick={e => e.stopPropagation()}>
       <button className="close-button" onClick={() => setIsModalOpen(false)}>X</button>
-      <h2>Add New Donation</h2>
+      <h2 style={{ textAlign: 'center' }}>Add New Donation</h2>
       <div className="input-group">
         <label htmlFor="receiptIdInput">Receipt ID:</label>    
         <input
@@ -195,7 +195,7 @@ const Home = () => {
         />
       </div>
       {receiptNotFound && <p style={{ color: 'red', marginBottom: '3%' }}>Receipt ID Not Found</p>}      
-      <button className="yellow-button" onClick={handleModalSubmit}>Submit</button>
+      <button className="yellow-modal-button" onClick={handleModalSubmit}>Submit</button>
     </div>
 
   </div>
