@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 60vh;
 }
 
 .center-table {
@@ -26,6 +26,13 @@ body {
     padding: 10px;
   }
 
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+
   .yellow-button {
     background-color: #FFD700;
     border: none;
@@ -39,6 +46,8 @@ body {
     cursor: pointer;
     
   }
+
+
 
   .modal {
     display: flex;
