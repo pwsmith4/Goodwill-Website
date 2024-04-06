@@ -134,7 +134,6 @@ const Home = () => {
       top: 0, 
       left: 0, 
       right: 0, 
-      zIndex: 1000, 
       bottom: 0
     }}>    
         <div className="nav-logo">
