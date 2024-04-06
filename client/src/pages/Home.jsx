@@ -186,11 +186,12 @@ const Home = () => {
                     <td className="border-top">{receipt.receipt_id}</td>
                     <td className="border-top">{receipt.timestamp}</td>
                     <td className="border-top">{receipt.store_number}</td>
+                    <td className="border-top"></td>
                     <td className="border-top">
                       <input 
                         type="number" 
                         style={{
-                          width: '90%',
+                          width: '100%',
                           appearance: 'textfield',
                           WebkitAppearance: 'none',
                         }}
