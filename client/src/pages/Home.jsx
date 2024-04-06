@@ -189,6 +189,10 @@ const Home = () => {
                     <td className="border-top">
                       <input 
                         type="number" 
+                        style={{
+                          width: '100%',
+                          appearance: 'none'
+                        }}
                         defaultValue={receipt.donation_value} 
                         onChange={(e) => handleDonationValueChange(e, receipt.receipt_id)}
                       />
