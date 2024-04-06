@@ -179,7 +179,7 @@ const Home = () => {
                 ))}
                 </tbody>
             </table>
-            <div style={{ width: '100%' }}>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
             <button className="yellow-button" onClick={handleAddNewDonation}>Add New Donation</button>
             </div>
             {isModalOpen && (
