@@ -1,4 +1,8 @@
-  .signup-container {
+#root {
+  height: auto;
+  overflow: hidden;
+}
+.signup-container {
     display: flex;
     flex-direction: column;
     align-items: center;
