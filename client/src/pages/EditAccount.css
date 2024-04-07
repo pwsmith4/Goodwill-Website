@@ -1,6 +1,5 @@
 #root {
   height: auto;
-  overflow: hidden;
 }
 .signup-container {
     display: flex;
