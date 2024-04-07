@@ -88,7 +88,7 @@ const Home = () => {
       try {
         const response = await axios.put(
           `${process.env.REACT_APP_BASE_URL}/api/receipt_ids`,
-          { donation_value: e.target.value , id},
+          { params: {donation_value: e.target.value , id}},
           { withCredentials: true }
         );
         console.log(response.data);
