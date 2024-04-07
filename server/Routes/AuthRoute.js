@@ -12,9 +12,9 @@ router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); 
 
 router.put('/api/receipt_ids/:id', async (req, res) => {
-  console.log("updating receipt donation value: " + req.params.id);
+  console.log("updating receipt donation value: " + req.query.id);
   try {
-    const receipt = await Receipt_id.findById(req.params.id);
+    const receipt = await Receipt_id.findById(req.query.id);
     if (!receipt) {
       return res.status(404).send('Receipt not found');
     }
