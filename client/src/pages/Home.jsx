@@ -87,8 +87,8 @@ const Home = () => {
       console.log("Updating Donation Value: " + e.target.value + " for ID: " + id);
       try {
         const response = await axios.put(
-          `${process.env.REACT_APP_BASE_URL}/api/receipt_ids`,
-          { params: {donation_value: e.target.value , id}},
+          `${process.env.REACT_APP_BASE_URL}/api/receipt`,
+          { params: {donation_value: e.target.value , id: id}},
           { withCredentials: true }
         );
         console.log(response.data);
