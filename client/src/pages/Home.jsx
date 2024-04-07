@@ -200,6 +200,7 @@ const Home = () => {
                           marginLeft: '10px',
                           appearance: 'textfield',
                           WebkitAppearance: 'none',
+                          border: 'none'
                         }}
                         defaultValue={receipt.donation_value} 
                         onChange={(e) => updateDonationValue(receipt.receipt_id, e)}
