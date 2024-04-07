@@ -106,7 +106,7 @@ import { states } from "../components/states";
               justifyContent: 'space-between', 
               alignItems: 'center', 
               width: '100%', 
-              backgroundColor: '#F5F5F5', 
+              backgroundColor: 'white', 
               top: 0, 
               left: 0, 
               right: 0, 
