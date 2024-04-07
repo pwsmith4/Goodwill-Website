@@ -51,10 +51,6 @@ const Welcome = () => {
     navigate("/signup");
   };
 
-  const Privacy = () => {
-    navigate("/privacy");
-  };
-
   const nextImage = () => {
     setCurrentImageIndex((currentImageIndex + 1) % images.length);
   };
