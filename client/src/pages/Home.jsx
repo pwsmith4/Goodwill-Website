@@ -91,7 +91,6 @@ const Home = () => {
           { donation_value: e.target.value },
           { withCredentials: true }
         );
-    
         console.log(response.data);
       } catch (error) {
         console.error(error);
