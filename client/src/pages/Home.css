@@ -188,11 +188,18 @@ body {
     right: 10px;
     background: none;
     border: none;
-    font-size: 2px;
+    font-size: 16px;
     cursor: pointer;
     width: 20px;
     height: 20px;
+  }
 
+  .close-button1:hover {
+    background-color: none;
+  }
+
+  .close-button:hover {
+    background-color: none;
   }
 
   .modal-content button:last-child {
