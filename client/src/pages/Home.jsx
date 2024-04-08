@@ -236,7 +236,7 @@ const Home = () => {
             {isDonationModalOpen && (
   <div className="modal1" onClick={closeDonationModal}>
     <div className="modal-content1" onClick={e => e.stopPropagation()}>
-    <button className="close-button" onClick={() => closeDonationModal}>X</button>
+    <button className="close-button1" onClick={() => closeDonationModal}>X</button>
       <h2 style={{ textAlign: 'center' }}>Donation Type</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <button onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
