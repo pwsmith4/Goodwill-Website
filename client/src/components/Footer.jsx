@@ -14,7 +14,7 @@ function Footer() {
         <h3><Link to="/Privacy">Privacy Policy</Link></h3>
       </div>
       <div className="get-in-touch">
-        <h2>Get in Touch</h2>
+        <h2>Goodwill Website</h2>
         <h3><a href="https://www.goodwillsacto.org" target="_blank" rel="noopener noreferrer">goodwillsacto.org</a></h3>
       </div>
     </div>
