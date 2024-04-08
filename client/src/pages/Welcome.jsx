@@ -84,7 +84,11 @@ const Welcome = () => {
     clearInterval(timer);
   };
 }, [currentImageIndex]);
-
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 if (isLoading) {
   return <BounceLoader color={"#123abc"} loading={isLoading} css={override} size={150} />;
 }
