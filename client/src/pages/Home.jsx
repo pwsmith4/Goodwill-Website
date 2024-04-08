@@ -239,9 +239,9 @@ const Home = () => {
     <button className="close-button1" onClick={() => closeDonationModal}>X</button>
       <h2 style={{ textAlign: 'center' }}>Donation Type</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <button onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
-        <button onClick={() => handleDonationTypeClick('Cash Donation')}>Cash Donation</button>
-        <button onClick={() => handleDonationTypeClick('Other')}>Other</button>
+        <button className="modal-button1" onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
+        <button className="modal-button1" onClick={() => handleDonationTypeClick('Cash Donation')}>Cash Donation</button>
+        <button className="modal-button1" onClick={() => handleDonationTypeClick('Other')}>Other</button>
       </div>
     </div>
   </div>
