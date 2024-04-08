@@ -25,7 +25,6 @@ const Welcome = () => {
   
   useEffect(() => {
     const verifyCookie = async () => {
-      setIsLoading(true);
       if (!cookies.token) {
         navigate("/welcome");
       }
@@ -37,7 +36,6 @@ const Welcome = () => {
       const { status, user } = data;
       setUsername(user);
       setIsSignedIn(status);
-      setIsLoading(false); // Set loading to false after verification is complete
       return status
         ? toast(`Hello ${user}`, {
             position: "top-right",
@@ -46,10 +44,6 @@ const Welcome = () => {
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  } 
 
   const Login = () => {
     navigate("/login");
