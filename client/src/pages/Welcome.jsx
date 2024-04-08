@@ -10,8 +10,6 @@ import img3 from '../img/img3.jpg';
 import './Welcome.css';
 import { Link } from "react-router-dom";
 import Footer from '../components/Footer';
-import { css } from "@emotion/react";
-import { BounceLoader } from "react-spinners";
 
 
 const Welcome = () => {
@@ -84,14 +82,10 @@ const Welcome = () => {
     clearInterval(timer);
   };
 }, [currentImageIndex]);
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-if (isLoading) {
-  return <BounceLoader color={"#123abc"} loading={isLoading} css={override} size={150} />;
-}
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
