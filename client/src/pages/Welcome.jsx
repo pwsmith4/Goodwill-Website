@@ -25,6 +25,7 @@ const Welcome = () => {
   
   useEffect(() => {
     const verifyCookie = async () => {
+      setIsLoading(true);
       if (!cookies.token) {
         navigate("/welcome");
       }
@@ -36,10 +37,10 @@ const Welcome = () => {
       const { status, user } = data;
       setUsername(user);
       setIsSignedIn(status);
+      setIsLoading(false);
+      console.log("Status: ", status);
       return status
-        ? toast(`Hello ${user}`, {
-            position: "top-right",
-          })
+        ? null
         : (removeCookie("token"), navigate("/welcome"));
       
     };
