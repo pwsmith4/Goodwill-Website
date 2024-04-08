@@ -26,9 +26,12 @@ const Welcome = () => {
   
   useEffect(() => {
     const verifyCookie = async () => {
+      console.log("Verifying Cookies");
       setIsLoading(true);
       if (!cookies.token) {
         navigate("/welcome");
+      }else{
+        navigate("/");
       }
       const { data } = await axios.post(
         `${process.env.REACT_APP_BASE_URL}`,
