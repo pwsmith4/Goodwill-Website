@@ -23,11 +23,11 @@ body {
   cursor: pointer;
 }
 
-.modal-content1 button:hover {
+.modal-content1 .modal-button button:hover {
   background-color: #D4AF37;
 }
 
-.modal-content button:hover {
+.modal-content .modal-button button:hover {
   background-color: #D4AF37;
 }
 
