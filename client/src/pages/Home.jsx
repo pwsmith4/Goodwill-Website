@@ -16,6 +16,9 @@ const Home = () => {
     const [receiptIdInput, setReceiptIdInput] = useState('');
     const [receipts, setReceipts] = useState([]);
     const [receiptNotFound, setReceiptNotFound] = useState(false);
+    const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+    const [donationType, setDonationType] = useState('');
+
 
     useEffect(() => {
       const fetchReceipts = async () => {
@@ -81,6 +84,22 @@ const Home = () => {
         setReceiptNotFound(true);
         console.error(error);
       }
+    };
+
+    const openDonationModal = () => {
+      setIsDonationModalOpen(true);
+    };
+    
+    const closeDonationModal = () => {
+      setIsDonationModalOpen(false);
+    };
+
+    const handleDonationTypeClick = (type) => {
+      setDonationType(type);
+      if (type === 'Receipt') {
+        setIsModalOpen(true);
+      }
+      setIsDonationModalOpen(false);
     };
 
     const updateDonationValue = async (id, e) => {
@@ -212,8 +231,18 @@ const Home = () => {
                 </tbody>
             </table>
             <div className="button-container">
-            <button className="yellow-button" onClick={handleAddNewDonation}>Add New Donation</button>
+            <button className="yellow-button" onClick={openDonationModal}>Add New Donation</button>
             </div>
+            {isDonationModalOpen && (
+  <div className="modal">
+    <div className="modal-content">
+      <h2>Donation Type</h2>
+      <button onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
+      <button onClick={() => handleDonationTypeClick('Cash Donation')}>Cash Donation</button>
+      <button onClick={() => handleDonationTypeClick('Other')}>Other</button>
+    </div>
+  </div>
+)}
             {isModalOpen && (
   <div className="modal" onClick={() => setIsModalOpen(false)}>
     <div className="modal-content" onClick={e => e.stopPropagation()}>
