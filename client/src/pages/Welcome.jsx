@@ -36,6 +36,12 @@ const Welcome = () => {
       const { status, user } = data;
       setUsername(user);
       setIsSignedIn(status);
+      return status
+        ? toast(`Hello ${user}`, {
+            position: "top-right",
+          })
+        : (removeCookie("token"), navigate("/welcome"));
+      
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
