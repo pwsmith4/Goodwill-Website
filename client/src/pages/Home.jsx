@@ -179,8 +179,8 @@ const Home = () => {
                         <th>Receipt ID</th>
                         <th>Date</th>
                         <th>Location</th>
-                        <th>Actions</th>
                         <th>Donation Value</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -189,7 +189,6 @@ const Home = () => {
                     <td className="border-top">{receipt.receipt_id}</td>
                     <td className="border-top">{receipt.timestamp}</td>
                     <td className="border-top">{receipt.store_number}</td>
-                    <td className="border-top"></td>
                     <td className="border-top">
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <span>$</span>
@@ -207,6 +206,7 @@ const Home = () => {
                       />
                     </div>
                   </td>
+                  <td className="border-top"></td>
                   </tr>
                 ))}
                 </tbody>

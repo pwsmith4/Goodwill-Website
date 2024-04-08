@@ -107,7 +107,7 @@ const Login = () => {
       </button>
     </div>
   </nav>
-    <h2 className="signin-title">Login Account</h2>
+    <h2 className="signin-title">Account Login</h2>
     <form className="signin-form" onSubmit={handleSubmit}>
       <div>
         <label className="signin-label" htmlFor="email">Email: </label>
@@ -133,7 +133,7 @@ const Login = () => {
       </div>
         <button className="submit-button" type="submit">Submit</button>
         <span>
-          Already have an account? <Link to={"/signup"}>Signup</Link>
+          Don't have an account? <Link to={"/signup"}>Signup</Link>
         </span>
       </form>
     </div>

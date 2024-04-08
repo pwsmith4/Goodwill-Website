@@ -38,7 +38,6 @@ const Welcome = () => {
       setUsername(user);
       setIsSignedIn(status);
       setIsLoading(false);
-      console.log("Status: ", status);
       return status
         ? null
         : (removeCookie("token"), navigate("/welcome"));
@@ -86,7 +85,7 @@ const Welcome = () => {
     clearInterval(timer);
   };
 }, [currentImageIndex]);
-
+  if(isLoading) return <div>Loading...</div>;
   return (
     <>
     <nav style={{ 
