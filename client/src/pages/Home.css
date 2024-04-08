@@ -195,11 +195,11 @@ body {
   }
 
   .close-button1:hover {
-    background-color: none;
+    background-color: 'white';
   }
 
   .close-button:hover {
-    background-color: none;
+    background-color: 'white';
   }
 
   .modal-content button:last-child {
