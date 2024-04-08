@@ -13,7 +13,6 @@ const userSchema = new mongoose.Schema({
   },
     phoneNumber: {
         type: String,
-        required: [true, "Your phone number is required"],
     },
   password: {
     type: String,
@@ -21,6 +20,7 @@ const userSchema = new mongoose.Schema({
   },
     lastName: {
         type: String,
+        required: [true, "Your last name is required"],
     },
     streetAddress: {
         type: String,

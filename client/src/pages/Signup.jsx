@@ -112,7 +112,7 @@ import { states } from "../components/states";
               right: 0, 
               zIndex: 1000 
           }}>      
-      <div className="nav-logo" style={{ backgroundColor: '#F5F5F5' }}>
+      <div className="nav-logo">
         <img src={Logo} alt="Goodwill" style={{ width: '300px', cursor: 'pointer', margin: '5px 0 0 5px' }} onClick={() => navigate('/')} />
       </div>
       <div>
@@ -159,7 +159,7 @@ import { states } from "../components/states";
               placeholder="Enter your last name"
               onChange={handleOnChange}
             />
-          <span className="not-required-text">*required</span>
+          <span className="required-text">*required</span>
           </div>
           <div className="input-group">
             <label className="signup-label" htmlFor="phoneNumber">Phone Number: </label>
@@ -171,7 +171,6 @@ import { states } from "../components/states";
               placeholder="Enter your phone number"
               onChange={handleOnChange}
             />
-              <span className="required-text">*required</span>
           </div>
           <div className="input-group">
             <label className="signup-label" htmlFor="email">Email: </label>
