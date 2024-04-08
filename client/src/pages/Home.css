@@ -12,6 +12,20 @@ body {
   justify-content: space-between;
 }
 
+.modal-content button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
 .center-table {
     width: 80%;
     margin: 0 auto;

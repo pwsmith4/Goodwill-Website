@@ -234,12 +234,14 @@ const Home = () => {
             <button className="yellow-button" onClick={openDonationModal}>Add New Donation</button>
             </div>
             {isDonationModalOpen && (
-  <div className="modal">
-    <div className="modal-content">
-      <h2>Donation Type</h2>
-      <button onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
-      <button onClick={() => handleDonationTypeClick('Cash Donation')}>Cash Donation</button>
-      <button onClick={() => handleDonationTypeClick('Other')}>Other</button>
+  <div className="modal" onClick={closeDonationModal}>
+    <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <h2 style={{ textAlign: 'center' }}>Donation Type</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <button onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
+        <button onClick={() => handleDonationTypeClick('Cash Donation')}>Cash Donation</button>
+        <button onClick={() => handleDonationTypeClick('Other')}>Other</button>
+      </div>
     </div>
   </div>
 )}
