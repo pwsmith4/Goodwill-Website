@@ -11,7 +11,6 @@ import './Welcome.css';
 import { Link } from "react-router-dom";
 import Footer from '../components/Footer';
 
-
 const Welcome = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -26,13 +25,8 @@ const Welcome = () => {
   
   useEffect(() => {
     const verifyCookie = async () => {
-      console.log("Verifying Cookies: " + cookies);
-      setIsLoading(true);
       if (!cookies.token) {
-        console.log("No token found");
         navigate("/welcome");
-      }else{
-        navigate("/");
       }
       const { data } = await axios.post(
         `${process.env.REACT_APP_BASE_URL}`,
@@ -40,15 +34,8 @@ const Welcome = () => {
         { withCredentials: true }
       );
       const { status, user } = data;
-      if (!cookies.token) {
-        console.log("No token found");
-        navigate("/welcome");
-      }else{
-        navigate("/");
-      }
       setUsername(user);
       setIsSignedIn(status);
-      setIsLoading(false);
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
@@ -92,10 +79,6 @@ const Welcome = () => {
     clearInterval(timer);
   };
 }, [currentImageIndex]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <>
