@@ -87,6 +87,26 @@
     margin-top: 25px;
   }
 
+  .navigation-dots {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  
+  .navigation-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .navigation-dot.active {
+    background-color: #717171;
+  }
+  
   .actions-container {
     display: flex;
     justify-content: space-between;

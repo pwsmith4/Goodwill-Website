@@ -59,6 +59,20 @@ const Welcome = () => {
     setCurrentImageIndex((currentImageIndex - 1 + images.length) % images.length);
   };
 
+  const NavigationDots = ({ currentImageIndex, setCurrentImageIndex, imagesLength }) => {
+    return (
+      <div className="navigation-dots">
+        {Array.from({ length: imagesLength }).map((_, index) => (
+          <button
+            key={index}
+            className={`navigation-dot ${currentImageIndex === index ? 'active' : ''}`}
+            onClick={() => setCurrentImageIndex(index)}
+          />
+        ))}
+      </div>
+    );
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((currentImageIndex + 1) % images.length);
@@ -115,6 +129,7 @@ const Welcome = () => {
         {showNextButton && <button className="slider-button next">&gt;</button>}
       </div>
     </div>
+    <NavigationDots currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} imagesLength={images.length} />
     <h1 className="welcome">Welcome</h1>
       <p className="welcome-info">Welcome to the customer portal for Goodwill Sacramento Valley & Northern Nevada! This site is designed to provide you, our customers and donors, access to tools and information to make your donating experience even better. Thank you for changing lives for good!</p>
       <Footer/>
