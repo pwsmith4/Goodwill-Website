@@ -40,6 +40,12 @@ const Welcome = () => {
         { withCredentials: true }
       );
       const { status, user } = data;
+      if (!cookies.token) {
+        console.log("No token found");
+        navigate("/welcome");
+      }else{
+        navigate("/");
+      }
       setUsername(user);
       setIsSignedIn(status);
       setIsLoading(false);
