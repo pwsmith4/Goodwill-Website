@@ -26,7 +26,7 @@ const Welcome = () => {
   
   useEffect(() => {
     const verifyCookie = async () => {
-      console.log("Verifying Cookies");
+      console.log("Verifying Cookies: " + cookies);
       setIsLoading(true);
       if (!cookies.token) {
         console.log("No token found");
