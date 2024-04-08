@@ -29,6 +29,7 @@ const Welcome = () => {
       console.log("Verifying Cookies");
       setIsLoading(true);
       if (!cookies.token) {
+        console.log("No token found");
         navigate("/welcome");
       }else{
         navigate("/");
