@@ -24,7 +24,11 @@ body {
 }
 
 .modal-content1 button:hover {
-  background-color: #45a049;
+  background-color: #D4AF37;
+}
+
+.modal-content button:hover {
+  background-color: #D4AF37;
 }
 
 .center-table {
