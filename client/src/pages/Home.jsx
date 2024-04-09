@@ -272,8 +272,7 @@ const Home = () => {
 )}
 {isCashDonationModalOpen && (
   <div className="modal1" onClick={() => setIsCashDonationModalOpen(false)}>
-    <div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
+<div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
       <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
   <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Cash Amount:</label>    

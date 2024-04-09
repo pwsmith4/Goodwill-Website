@@ -31,6 +31,10 @@ body {
   background-color: #D4AF37;
 }
 
+.yellow-modal-button button:hover {
+  background-color: #D4AF37;
+}
+
 .yellow-button:hover {
   background-color: #D4AF37;
 }
