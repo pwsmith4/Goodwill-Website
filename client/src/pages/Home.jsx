@@ -66,7 +66,7 @@ const Home = () => {
           console.log("Response: ", data); //data is the new receipt information
           await axios.put(
             `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
-            {params: {id: user._id, receipts: data}},
+            {params: {user, receipts: data}},
             { withCredentials: true }
           );
 
