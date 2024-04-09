@@ -295,6 +295,7 @@ const Home = () => {
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
+        console.log("Date: ", date);
         date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
         console.log("Value: ", e.target.value);
         console.log("Date: ", date);
