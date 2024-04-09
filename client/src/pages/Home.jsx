@@ -61,19 +61,18 @@ const Home = () => {
           `${process.env.REACT_APP_BASE_URL}/api/receipt_ids`,
           { params: { id: receiptIdInput }, withCredentials: true }
         );
-        console.log(data);
         if (data) {
           console.log("Response: ", data);
           setReceipts(prevReceipts => [...prevReceipts, data]);
           setReceiptNotFound(false);
-
+          console.log("Receipts: ", receipts);
           const { data: userData } = await axios.get(
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
           console.log("User Data: ", userData);
           const user = userData.user;
-          user.receipts.push(data);
+          user.user_receipts.push(data);
           console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user._id}`);
           console.log("User: ", user);
           await axios.put(
