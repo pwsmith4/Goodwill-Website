@@ -295,7 +295,7 @@ const Home = () => {
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
-        date.setDate(date.getDate());
+        date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
       
         // Check whether the date is valid
         if (isNaN(date)) {
