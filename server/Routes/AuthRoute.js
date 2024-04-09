@@ -2,6 +2,7 @@ const { Signup, Login, UpdateAccount, GetCurrentUser } = require("../Controllers
 const { userVerification } = require("../Middlewares/AuthMiddleware");
 const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
+const UserReceipt = require('../Models/UserReceipts');
 const User = require('../Models/UserModel');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
@@ -74,9 +75,17 @@ router.put('/users/:id', async (req, res) => {
       return res.status(404).send('User not found');
     }
 
-    user.receipts = req.body.receipts;    
+    const receipt = await Receipt_id.findOne({'receipt_id': req.body.receipt_id});
+    if (!receipt) {
+      return res.status(404).send('Receipt not found');
+    }
 
+    const userReceipt = new UserReceipt({ receipt: receipt._id, user: user._id });
+    await userReceipt.save();
+
+    user.user_receipts.push(userReceipt._id);
     await user.save();
+
     res.send({ user });
   } catch (error) {
     res.status(501).send('Server error');

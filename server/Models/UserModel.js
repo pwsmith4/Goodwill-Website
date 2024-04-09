@@ -44,9 +44,9 @@ const userSchema = new mongoose.Schema({
   id: {
     type: String,
   },
-  receipts: [{
+  user_receipts: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Receipt'
+    ref: 'UserReceipt'
   }]
 });
 
