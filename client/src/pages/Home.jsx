@@ -73,6 +73,7 @@ const Home = () => {
           );
           const user = userData.user;
           user.user_receipts.push(userData);
+          console.log("User with userData added to user_receipts: ", user);
           console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user._id}`);
           console.log("User id: ", user._id);
           console.log("User Receipts: ", user.receipts);
