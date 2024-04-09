@@ -291,7 +291,7 @@ const Home = () => {
     <input
       type="date"
       id="dateInput"
-      style={{ fontSize: '20px' }}
+      style={{ fontSize: '16px' }}
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
@@ -310,6 +310,7 @@ const Home = () => {
           alert('The date cannot be in the future');
           return;
         }
+        console.log("Date: ", date);
       
         setSelectedDate(date);
       }}
