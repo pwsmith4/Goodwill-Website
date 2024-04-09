@@ -275,15 +275,15 @@ const Home = () => {
     <div className="modal-content1" onClick={e => e.stopPropagation()}>
       <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
-      <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
   <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Cash Amount:</label>    
   <input
     id="cashAmountInput"
     value={cashAmountInput}
     onChange={e => setCashAmountInput(e.target.value)}
   />
-  <button className="yellow-modal-button" onClick={handleCashDonationSubmit}>Submit</button>
-</div>
+  </div>
+  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '50px' }}>Submit</button>
     </div>
   </div>
 )}
