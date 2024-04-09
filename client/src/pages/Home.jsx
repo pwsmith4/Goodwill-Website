@@ -22,8 +22,11 @@ const Home = () => {
     const [cashAmountInput, setCashAmountInput] = useState('');
     const [isOtherDonationModalOpen, setIsOtherDonationModalOpen] = useState(false);
     const [otherAmountInput, setOtherAmountInput] = useState('');
-    const [selectedDate, setSelectedDate] = useState(new Date());
-
+    const [selectedDate, setSelectedDate] = useState(() => {
+      const date = new Date();
+      date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+      return date;
+    });
     useEffect(() => {
       const fetchReceipts = async () => {
         try {
