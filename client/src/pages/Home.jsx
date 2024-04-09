@@ -302,7 +302,6 @@ const Home = () => {
         console.log("Date: ", date);
         console.log("Minutes: ", date.getMinutes());
         console.log("Timezone offset: ", date.getTimezoneOffset());
-        date.setMinutes(date.getMinutes() - date.getTimezoneOffset());     
         // Check whether the date is valid
         if (isNaN(date)) {
           alert('Invalid date');
