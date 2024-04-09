@@ -99,7 +99,7 @@ router.put('/users/:id', async (req, res) => {
 
     const userReceipt = new UserReceipt({ receipt: receipt._id, user: user._id });
     await userReceipt.save();
-
+    console.log("Saved User Receipt: ", userReceipt);
     user.user_receipts.push(userReceipt._id);
     await user.save();
 
