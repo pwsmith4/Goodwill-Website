@@ -314,12 +314,9 @@ const Home = () => {
       }}
     />
     </div>
-    <p style={{ marginTop: '10px' }}>
-      Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-    </p>
   </div>
   <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
-  <label htmlFor="cashAmountInput" style={{ marginRight: '0px' }}>Cash Amount: $</label>    
+  <label htmlFor="cashAmountInput" style={{ marginRight: '5px' }}>Cash Amount: $</label>    
   <input
     id="cashAmountInput"
     value={otherAmountInput}
