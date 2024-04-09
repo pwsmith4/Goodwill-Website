@@ -280,22 +280,28 @@ const Home = () => {
 )}
 {isCashDonationModalOpen && (
   <div className="modal1" onClick={() => setIsCashDonationModalOpen(false)}>
-<div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
-      <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
-      <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>
-  <label htmlFor="dateInput" style={{ marginBottom: '10px' }}>Date:</label>    
-  <input
-  type="date"
-  id="dateInput"
-  value={selectedDate.toISOString().substr(0, 10)}
-  onChange={e => setSelectedDate(new Date(e.target.value))}
-  />
+<div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
+  <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
+  <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
+  <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>
+    <label htmlFor="dateInput" style={{ marginBottom: '10px' }}>Date:</label>    
+    <input
+      type="date"
+      id="dateInput"
+      value={selectedDate.toISOString().substr(0, 10)}
+      onChange={e => {
+        const date = new Date(e.target.value);
+        const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+        setSelectedDate(localDate);
+      }}
+    />
     <p style={{ marginTop: '10px' }}>
-    Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-  </p>
-</div>
-  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
+      Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+    </p>
   </div>
+  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>
+</div>
+</div>
 )}
 
 {isOtherDonationModalOpen && (
