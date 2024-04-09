@@ -73,12 +73,12 @@ const Home = () => {
           );
           console.log("User Data: ", userData);
           const user = userData.user;
-          user.user_receipts.push(data);
+          user.user_receipts.push(userData);
           console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user._id}`);
           console.log("User: ", user);
           await axios.put(
             `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
-            {receipts: user.receipts},
+            {params: {id: user._id, receipts: user.receipts}},
             { withCredentials: true }
           );
           setIsModalOpen(false);
