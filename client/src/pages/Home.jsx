@@ -20,6 +20,8 @@ const Home = () => {
     const [donationType, setDonationType] = useState('');
     const [isCashDonationModalOpen, setIsCashDonationModalOpen] = useState(false);
     const [cashAmountInput, setCashAmountInput] = useState('');
+    const [isOtherDonationModalOpen, setIsOtherDonationModalOpen] = useState(false);
+    const [otherAmountInput, setOtherAmountInput] = useState('');
 
     useEffect(() => {
       const fetchReceipts = async () => {
@@ -162,6 +164,10 @@ const Home = () => {
         // Handle the form submission here
       };
       
+      const handleOtherDonationSubmit = async () => {
+        // Handle the form submission here
+      };
+      
     return (
     <body>          
     <div style={{ 
@@ -283,6 +289,23 @@ const Home = () => {
   />
   </div>
   <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '50px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
+  </div>
+)}
+
+{isOtherDonationModalOpen && (
+  <div className="modal1" onClick={() => setIsOtherDonationModalOpen(false)}>
+<div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>      
+<button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
+      <h2 style={{ textAlign: 'center' }}>Other Donation</h2>
+      <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '20px' }}>
+  <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Donation Value:</label>    
+  <input
+    id="cashAmountInput"
+    value={otherAmountInput}
+    onChange={e => setOtherAmountInput(e.target.value)}
+  />
+  </div>
+  <button className="yellow-modal-button" onClick={handleOtherDonationSubmit} style={{ marginTop: '50px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
   </div>
 )}
 <Footer style={{ 
