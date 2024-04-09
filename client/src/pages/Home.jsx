@@ -291,7 +291,7 @@ const Home = () => {
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
-        date.setDate(date.getDate() + 1);
+        date.setDate(date.getDate() );
         setSelectedDate(date);
       }}
     />
