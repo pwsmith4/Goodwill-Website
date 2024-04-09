@@ -75,6 +75,23 @@ router.put('/users/:id', async (req, res) => {
       return res.status(404).send('User not found');
     }
 
+    user.receipts = req.body.receipts;    
+
+    await user.save();
+    res.send({ user });
+  } catch (error) {
+    res.status(501).send('Server error');
+  }
+});
+
+router.put('/users/:id', async (req, res) => {
+  console.log("ID sent to server: " + req.params.id);
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
     const receipt = await Receipt_id.findOne({'receipt_id': req.body.receipt_id});
     if (!receipt) {
       return res.status(404).send('Receipt not found');
@@ -91,6 +108,7 @@ router.put('/users/:id', async (req, res) => {
     res.status(501).send('Server error');
   }
 });
+
 
 router.get('/current_user', userVerification, async (req, res) => {
   try{
