@@ -22,6 +22,7 @@ const Home = () => {
     const [cashAmountInput, setCashAmountInput] = useState('');
     const [isOtherDonationModalOpen, setIsOtherDonationModalOpen] = useState(false);
     const [otherAmountInput, setOtherAmountInput] = useState('');
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     useEffect(() => {
       const fetchReceipts = async () => {
@@ -281,14 +282,15 @@ const Home = () => {
   <div className="modal1" onClick={() => setIsCashDonationModalOpen(false)}>
 <div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
-      <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
-  <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Cash Amount: $</label>    
+      <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>
+  <label htmlFor="dateInput" style={{ marginBottom: '10px' }}>Date:</label>    
   <input
-    id="cashAmountInput"
-    value={cashAmountInput}
-    onChange={e => setCashAmountInput(e.target.value)}
+    type="date"
+    id="dateInput"
+    value={selectedDate.toISOString().substr(0, 10)}
+    onChange={e => setSelectedDate(new Date(e.target.value))}
   />
-  </div>
+</div>
   <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
   </div>
 )}
