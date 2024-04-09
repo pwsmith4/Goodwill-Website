@@ -67,22 +67,22 @@ router.get('/api/id', async (req, res) => {
 }
 });
 
-router.put('/users/:id', async (req, res) => {
-  console.log("ID sent to server: " + req.params.id);
-  try {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
+// router.put('/users/:id', async (req, res) => {
+//   console.log("ID sent to server: " + req.params.id);
+//   try {
+//     const user = await User.findById(req.params.id);
+//     if (!user) {
+//       return res.status(404).send('User not found');
+//     }
 
-    user.receipts = req.body.receipts;    
+//     user.receipts = req.body.receipts;    
 
-    await user.save();
-    res.send({ user });
-  } catch (error) {
-    res.status(501).send('Server error');
-  }
-});
+//     await user.save();
+//     res.send({ user });
+//   } catch (error) {
+//     res.status(501).send('Server error');
+//   }
+// });
 
 router.put('/users/:id', async (req, res) => {
   console.log("ID sent to server: " + req.params.id);
