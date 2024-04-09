@@ -283,8 +283,7 @@ const Home = () => {
     onChange={e => setCashAmountInput(e.target.value)}
   />
   </div>
-  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '50px' }}>Submit</button>
-    </div>
+  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '50px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
   </div>
 )}
 <Footer style={{ 
