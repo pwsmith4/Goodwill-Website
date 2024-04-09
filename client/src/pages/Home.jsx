@@ -253,10 +253,9 @@ const Home = () => {
     <button className="close-button1" onClick={() => closeDonationModal}>X</button>
       <h2 style={{ textAlign: 'center' }}>Donation Type</h2>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <button className="modal-button" onClick={() => handleDonationTypeClick('Receipt')}>Receipt</button>
-        <button className="modal-button" onClick={() => handleDonationTypeClick('Cash Donation')}>Cash Donation</button>
-        <button className="modal-button" onClick={() => handleDonationTypeClick('Other')}>Other</button>
-      </div>
+      <button className="modal-button" onClick={() => handleDonationTypeClick('Receipt')} style={{ fontSize: '16px' }}>Receipt</button>
+      <button className="modal-button" onClick={() => handleDonationTypeClick('Cash Donation')} style={{ fontSize: '16px' }}>Cash Donation</button>
+      <button className="modal-button" onClick={() => handleDonationTypeClick('Other')} style={{ fontSize: '16px' }}>Other</button>      </div>
     </div>
   </div>
 )}
@@ -280,7 +279,7 @@ const Home = () => {
 )}
 {isCashDonationModalOpen && (
   <div className="modal1" onClick={() => setIsCashDonationModalOpen(false)}>
-<div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
+<div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
       <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '20px' }}>
   <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Cash Amount:</label>    
