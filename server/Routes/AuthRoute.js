@@ -87,10 +87,7 @@ router.get('/api/id', async (req, res) => {
 router.put('/users/:id', async (req, res) => {
   console.log("ID sent to server: " + req.params.id);
   try {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
+    const user = req.params.id;
 
     const receipt = await Receipt_id.findOne({'receipt_id': req.params.receipts});
     if (!receipt) {
@@ -99,7 +96,7 @@ router.put('/users/:id', async (req, res) => {
 
     const userReceipt = new UserReceipt({ receipt, user });
     await userReceipt.save();
-    console.log("Saved User Receipt: ", userReceipt);
+    console.log("Saved User Receipt: ", userReceipt , "User: ", user);
     user.user_receipts.push(userReceipt);
     await user.save();
 
