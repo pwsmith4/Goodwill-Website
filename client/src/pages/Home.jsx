@@ -296,6 +296,7 @@ const Home = () => {
       onChange={e => {
         const date = new Date(e.target.value);
         console.log("Value: ", e.target.value);
+        console.log("Date: ", date);
         console.log("Minutes: ", date.getMinutes());
         console.log("Timezone offset: ", date.getTimezoneOffset());
         date.setMinutes(date.getMinutes() - date.getTimezoneOffset());     
