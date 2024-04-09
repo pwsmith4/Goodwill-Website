@@ -288,7 +288,7 @@ const Home = () => {
   <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
   <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
     <div style={{ display: 'flex', flexDirection: 'row'}}>
-    <label htmlFor="dateInput" >Donation Date:</label>    
+    <label htmlFor="dateInput" style={{ fontSize: '16px' }}>Donation Date:</label>    
     <input
       type="date"
       id="dateInput"
@@ -316,10 +316,11 @@ const Home = () => {
     </div>
   </div>
   <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
-  <label htmlFor="cashAmountInput" style={{ marginRight: '5px' }}>Cash Amount: $</label>    
+  <label htmlFor="cashAmountInput" style={{ marginRight: '5px', fontSize: '16px' }}>Cash Amount: $</label>    
   <input
     id="cashAmountInput"
     value={otherAmountInput}
+    style={{ fontSize: '16px' }}
     onChange={e => setCashAmountInput(e.target.value)}
   />
   </div>
