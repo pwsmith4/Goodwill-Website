@@ -291,8 +291,8 @@ const Home = () => {
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
-        const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-        setSelectedDate(localDate);
+        date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+        setSelectedDate(date);
       }}
     />
     <p style={{ marginTop: '10px' }}>
