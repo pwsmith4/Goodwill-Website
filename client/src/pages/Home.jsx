@@ -290,9 +290,9 @@ const Home = () => {
     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
     <label htmlFor="dateInput" style={{ fontSize: '16px', marginRight: '5px' }}>Donation Date:</label>    
     <input
+      style = {{fontSize: '16px', alignItems: 'center'}}
       type="date"
       id="dateInput"
-      style={{ fontSize: '16px' }}
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
