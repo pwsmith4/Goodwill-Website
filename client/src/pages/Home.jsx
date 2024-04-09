@@ -288,8 +288,11 @@ const Home = () => {
     type="date"
     id="dateInput"
     value={selectedDate.toISOString().substr(0, 10)}
-    onChange={e => setSelectedDate(new Date(e.target.value))}
+    onChange={e => setSelectedDate(new Date(e.target.value).toLocaleDateString("en-US"))}
   />
+    <p style={{ marginTop: '10px' }}>
+    Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+  </p>
 </div>
   <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
   </div>
