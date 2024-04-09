@@ -103,6 +103,8 @@ const Home = () => {
         setIsModalOpen(true);
       } else if (type === 'Cash Donation') {
         setIsCashDonationModalOpen(true);
+      } else if(type === 'Other'){
+        setIsOtherDonationModalOpen(true);
       }
       setIsDonationModalOpen(false);
     };
@@ -288,7 +290,7 @@ const Home = () => {
     onChange={e => setCashAmountInput(e.target.value)}
   />
   </div>
-  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '50px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
+  <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
   </div>
 )}
 
