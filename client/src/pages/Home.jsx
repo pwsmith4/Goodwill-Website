@@ -63,9 +63,16 @@ const Home = () => {
           { params: { id: receiptIdInput }, withCredentials: true }
         );
         if (data) {
-          console.log("Response: ", data);
-          setReceipts(prevReceipts => [...prevReceipts, data]);
-          setReceiptNotFound(false);
+          console.log("Response: ", data); //data is the new receipt information
+          await axios.put(
+            `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
+            {params: {id: user._id, receipts: data}},
+            { withCredentials: true }
+          );
+
+
+          setReceipts(prevReceipts => [...prevReceipts, data]); 
+          setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
           console.log("Receipts: ", receipts);
           const { data: userData } = await axios.get(
             `${process.env.REACT_APP_BASE_URL}/current_user`,
@@ -74,15 +81,10 @@ const Home = () => {
           console.log("User Data: ", userData);
           //const user = userData.user;
           //user.user_receipts.push(userData);
-          console.log("User with userData added to user_receipts: ", user);
           console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user._id}`);
           console.log("User id: ", user._id);
           console.log("User Receipts: ", user.receipts);
-          await axios.put(
-            `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
-            {params: {id: user._id, receipts: user.receipts}},
-            { withCredentials: true }
-          );
+
           console.log("User Receipts Updated in database");
           setIsModalOpen(false);
           setReceiptIdInput('');
