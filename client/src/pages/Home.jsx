@@ -283,21 +283,29 @@ const Home = () => {
 <div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
   <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
   <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
-  <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>
-    <label htmlFor="dateInput" style={{ marginBottom: '10px' }}>Date:</label>    
+  <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
+    <label htmlFor="dateInput" >Date:</label>    
     <input
       type="date"
       id="dateInput"
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
-        date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+        date.setDate(date.getDate() + 1);
         setSelectedDate(date);
       }}
     />
     <p style={{ marginTop: '10px' }}>
       Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
     </p>
+  </div>
+  <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
+  <label htmlFor="cashAmountInput" style={{ marginRight: '0px' }}>Cash Amount: $</label>    
+  <input
+    id="cashAmountInput"
+    value={otherAmountInput}
+    onChange={e => setCashAmountInput(e.target.value)}
+  />
   </div>
   <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>
 </div>
@@ -310,7 +318,7 @@ const Home = () => {
 <button className="close-button1" onClick={() => setIsOtherDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Other Donation</h2>
       <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
-  <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Donation Value: $</label>    
+  <label htmlFor="cashAmountInput" style={{ marginRight: '0px' }}>Donation Value: $</label>    
   <input
     id="cashAmountInput"
     value={otherAmountInput}
