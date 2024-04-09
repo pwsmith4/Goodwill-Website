@@ -287,7 +287,7 @@ const Home = () => {
   <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
   <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
   <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
-    <div style={{ display: 'flex', flexDirection: 'row'}}>
+    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
     <label htmlFor="dateInput" style={{ fontSize: '16px' }}>Donation Date:</label>    
     <input
       type="date"
@@ -309,7 +309,6 @@ const Home = () => {
           alert('The date cannot be in the future');
           return;
         }
-        console.log("Date: ", date);
         setSelectedDate(date);
       }}
     />
