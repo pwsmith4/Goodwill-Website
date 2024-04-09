@@ -18,6 +18,7 @@ const Home = () => {
     const [receiptNotFound, setReceiptNotFound] = useState(false);
     const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
     const [donationType, setDonationType] = useState('');
+    const [isCashDonationModalOpen, setIsCashDonationModalOpen] = useState(false);
 
 
     useEffect(() => {
@@ -98,12 +99,13 @@ const Home = () => {
       setDonationType(type);
       if (type === 'Receipt') {
         setIsModalOpen(true);
+      } else if (type === 'Cash Donation') {
+        setIsCashDonationModalOpen(true);
       }
       setIsDonationModalOpen(false);
     };
 
     const updateDonationValue = async (id, e) => {
-      console.log("Updating Donation Value: " + e.target.value + " for ID: " + id);
       try {
         const response = await axios.put(
           `${process.env.REACT_APP_BASE_URL}/api/receipt`,
@@ -262,9 +264,24 @@ const Home = () => {
       {receiptNotFound && <p style={{ color: 'red', marginBottom: '3%' }}>Receipt ID Not Found</p>}      
       <button className="yellow-modal-button" onClick={handleModalSubmit}>Submit</button>
     </div>
-
   </div>
-  
+)}
+{isCashDonationModalOpen && (
+  <div className="modal1" onClick={() => setIsCashDonationModalOpen(false)}>
+    <div className="modal-content1" onClick={e => e.stopPropagation()}>
+      <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
+      <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
+      <div className="input-group">
+        <label htmlFor="cashAmountInput" style={{ marginRight: '10px' }}>Cash Amount:</label>    
+        <input
+          id="cashAmountInput"
+          value={cashAmountInput}
+          onChange={e => setCashAmountInput(e.target.value)}
+        />
+      </div>
+      <button className="yellow-modal-button" onClick={handleCashDonationSubmit}>Submit</button>
+    </div>
+  </div>
 )}
 <Footer style={{ 
   position: 'fixed', 
