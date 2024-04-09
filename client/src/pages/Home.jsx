@@ -19,7 +19,7 @@ const Home = () => {
     const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
     const [donationType, setDonationType] = useState('');
     const [isCashDonationModalOpen, setIsCashDonationModalOpen] = useState(false);
-
+    const [cashAmountInput, setCashAmountInput] = useState('');
 
     useEffect(() => {
       const fetchReceipts = async () => {
@@ -158,6 +158,10 @@ const Home = () => {
         verifyCookie();
       }, [cookies, navigate, removeCookie]);
 
+      const handleCashDonationSubmit = async () => {
+        // Handle the form submission here
+      };
+      
     return (
     <body>          
     <div style={{ 
