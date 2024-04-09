@@ -287,7 +287,8 @@ const Home = () => {
   <button className="close-button1" onClick={() => setIsCashDonationModalOpen(false)}>X</button>
   <h2 style={{ textAlign: 'center' }}>Cash Donation</h2>
   <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
-    <label htmlFor="dateInput" >Date:</label>    
+    <div style={{ display: 'flex', flexDirection: 'row'}}>
+    <label htmlFor="dateInput" >Donation Date:</label>    
     <input
       type="date"
       id="dateInput"
@@ -295,13 +296,7 @@ const Home = () => {
       value={selectedDate.toISOString().substr(0, 10)}
       onChange={e => {
         const date = new Date(e.target.value);
-        console.log("Date: ", date);
-        console.log("Offset: ", date.getTimezoneOffset());
         date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-        console.log("Value: ", e.target.value);
-        console.log("Date: ", date);
-        console.log("Minutes: ", date.getMinutes());
-        console.log("Timezone offset: ", date.getTimezoneOffset());
         // Check whether the date is valid
         if (isNaN(date)) {
           alert('Invalid date');
@@ -318,6 +313,7 @@ const Home = () => {
         setSelectedDate(date);
       }}
     />
+    </div>
     <p style={{ marginTop: '10px' }}>
       Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
     </p>
