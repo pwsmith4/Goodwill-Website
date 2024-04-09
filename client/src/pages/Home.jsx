@@ -285,10 +285,10 @@ const Home = () => {
       <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>
   <label htmlFor="dateInput" style={{ marginBottom: '10px' }}>Date:</label>    
   <input
-    type="date"
-    id="dateInput"
-    value={selectedDate.toISOString().substr(0, 10)}
-    onChange={e => setSelectedDate(new Date(e.target.value).toLocaleDateString("en-US"))}
+  type="date"
+  id="dateInput"
+  value={selectedDate.toISOString().substr(0, 10)}
+  onChange={e => setSelectedDate(new Date(e.target.value))}
   />
     <p style={{ marginTop: '10px' }}>
     Selected date: {selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
