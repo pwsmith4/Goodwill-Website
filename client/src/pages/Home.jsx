@@ -38,17 +38,18 @@ const Home = () => {
           console.log("User Data: ", userData);
           setUser(userData);
           console.log("User: ", user);
-          const receiptPromises = user.receipts.map(receiptId =>
-            axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
-              params: { id: receiptId },
-              withCredentials: true
-            })
-          );
+          // console.log("User: ", user);
+          // const receiptPromises = user.receipts.map(receiptId =>
+          //   axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
+          //     params: { id: receiptId },
+          //     withCredentials: true
+          //   })
+          // );
           
-          const receiptResponses = await Promise.all(receiptPromises);
+          // const receiptResponses = await Promise.all(receiptPromises);
           
-          const receipts = receiptResponses.map(response => response.data);
-            setReceipts(receipts);
+          // const receipts = receiptResponses.map(response => response.data);
+          //   setReceipts(receipts);
         } catch (error) {
           console.error("Error" + error);
         }
