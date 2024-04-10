@@ -85,7 +85,7 @@ router.get('/api/id', async (req, res) => {
 // });
 
 router.put('/users/:id', async (req, res) => {
-  /*
+  
   try {
     const { newReceipt } = req.body;
     // Check if newReceipt is provided
@@ -102,27 +102,27 @@ router.put('/users/:id', async (req, res) => {
   const { receipt_id, timestamp, store_number, donation_value } = newReceipt;
 
   // Create a new Receipt object with the separated info
-  const receipt = new UserReceipt({
+  user.user_receipts.push({
     receipt_id,
     timestamp,
     store_number,
     donation_value
   });    // Save the new Receipt to the database
-    await receipt.save();
-    console.log("Receipt in server: ", receipt);
+    await user.save();
+   // console.log("Receipt in server: ", receipt);
     // Add the _id of the new Receipt to the user's user_receipts array
-    user.user_receipts.push(receipt._id);
+    //user.user_receipts.push(receipt._id);
 
     console.log("User in server: ", user);
 
     // Save the updated user back to the database
-    await user.save();
+    //await user.save();
 
     res.send({ user });
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
-  }*/
+  }
 });
 
 
