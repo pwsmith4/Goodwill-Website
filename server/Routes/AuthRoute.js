@@ -101,18 +101,21 @@ router.put('/users/:id', async (req, res) => {
   // Separate the info in newReceipt
   const { receipt_id, timestamp, store_number, donation_value } = newReceipt;
   console.log("Receipt ID: ", receipt_id);
-  /*
+  
+  
   // Create a new Receipt object with the separated info
-  user.user_receipts.push({
+  const newReceiptObject = {
     receipt_id,
     timestamp,
     store_number,
     donation_value
-  });    // Save the new Receipt to the database*/
-    await user.save();
-   // console.log("Receipt in server: ", receipt);
-    // Add the _id of the new Receipt to the user's user_receipts array
-    //user.user_receipts.push(receipt._id);
+  };
+
+  // Add the newReceiptObject to the user's user_receipts array
+  user.user_receipts.push(newReceiptObject);
+
+  // Save the updated user back to the database
+  await user.save();
 
     console.log("User in server: ", user);
 
