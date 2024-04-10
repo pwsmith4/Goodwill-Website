@@ -84,7 +84,7 @@ router.get('/api/id', async (req, res) => {
 //   }
 // });
 
-router.put('/users/:id', async (req, res) => {
+router.put('/users', async (req, res) => {
   try {
     //user is full user object
     const user = req.params.user;
