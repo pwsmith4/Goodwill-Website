@@ -2,7 +2,7 @@ const { Signup, Login, UpdateAccount, GetCurrentUser } = require("../Controllers
 const { userVerification } = require("../Middlewares/AuthMiddleware");
 const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
-const UserReceipt = require('../Models/User_Receipts');
+//const UserReceipt = require('../Models/User_Receipts');
 const User = require('../Models/UserModel');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
@@ -85,6 +85,7 @@ router.get('/api/id', async (req, res) => {
 // });
 
 router.put('/users/:id', async (req, res) => {
+  /*
   try {
     const { newReceipt } = req.body;
     // Check if newReceipt is provided
@@ -115,6 +116,7 @@ router.put('/users/:id', async (req, res) => {
     console.error(err);
     res.status(500).send('Server error');
   }
+  */
 });
 
 
