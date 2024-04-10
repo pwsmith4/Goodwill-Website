@@ -101,7 +101,7 @@ router.put('/users/:id', async (req, res) => {
     const receipt = new Receipt(newReceipt);
     // Save the new Receipt to the database
     await receipt.save();
-
+    console.log("Receipt in server: ", receipt);
     // Add the _id of the new Receipt to the user's user_receipts array
     user.user_receipts.push(receipt._id);
     // Save the updated user back to the database
