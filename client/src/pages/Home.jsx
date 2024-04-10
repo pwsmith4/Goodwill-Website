@@ -70,7 +70,7 @@ const Home = () => {
             { withCredentials: true }
           );
           const userInfo = user.user;
-          console.log("Response: ", user); //data is the new receipt information
+          console.log("Response: ", userInfo); //data is the new receipt information
          // setReceipts(prevReceipts => [...prevReceipts, data]); 
           //setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
         //  console.log("Receipts: ", receipts);
@@ -81,6 +81,7 @@ const Home = () => {
           //const user = userData;
           
           console.log("User Info: ", userInfo._id);
+          console.log("New Receipt: ", data);
           await axios.put(
             `${process.env.REACT_APP_BASE_URL}/users/${userInfo._id}`,
             { newReceipt: data },
