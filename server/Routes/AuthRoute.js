@@ -87,9 +87,9 @@ router.get('/api/id', async (req, res) => {
 router.put('/users', async (req, res) => {
   try {
     //user is full user object
-    const user = req.params.user.user;
+    const user = req.params.user;
     //receipt is receipt _.id
-    const receipt = await Receipt_id.findOne({'receipt_id': req.params.receipts});
+    const receipt = await Receipt_id.findOne({'receipt_id': req.params.receipts.receipt_id});
     if (!receipt) {
       return res.status(404).send('Receipt not found');
     }
