@@ -35,6 +35,7 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
+          console.log("User Data: ", userData);
           setUser(userData.user);
           console.log("User: ", user);
           const receiptPromises = user.receipts.map(receiptId =>
