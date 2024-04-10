@@ -69,20 +69,20 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          data = data.user;
+          const userInfo = data.user;
           console.log("Response: ", data.user); //data is the new receipt information
-          setReceipts(prevReceipts => [...prevReceipts, data]); 
-          setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
-          console.log("Receipts: ", receipts);
+         // setReceipts(prevReceipts => [...prevReceipts, data]); 
+          //setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
+        //  console.log("Receipts: ", receipts);
           // const { userData } = await axios.get(
           //   `${process.env.REACT_APP_BASE_URL}/current_user`,
           //   { withCredentials: true }
           // );
           //const user = userData;
           
-          console.log("User Info: ", user.user._id);
+          console.log("User Info: ", userInfo._id);
           await axios.put(
-            `${process.env.REACT_APP_BASE_URL}/users/${user.user._id}`,
+            `${process.env.REACT_APP_BASE_URL}/users/${userInfo._id}`,
             { newReceipt: data },
             { withCredentials: true }
           );
