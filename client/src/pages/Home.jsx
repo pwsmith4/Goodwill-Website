@@ -57,6 +57,7 @@ const Home = () => {
     }, []);
 
     const handleModalSubmit = async () => {
+      
       try {
         console.log("Receipt ID Input: ", receiptIdInput);
         const { data } = await axios.get(
