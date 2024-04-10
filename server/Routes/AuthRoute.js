@@ -96,7 +96,7 @@ router.put('/users/:id', async (req, res) => {
     if (!user) {
       return res.status(404).send('User not found');
     }
-
+    console.log("User before server: ", user);
     // Create a new Receipt object with the newReceipt data
     const receipt = new Receipt(newReceipt);
     // Save the new Receipt to the database
@@ -104,6 +104,9 @@ router.put('/users/:id', async (req, res) => {
     console.log("Receipt in server: ", receipt);
     // Add the _id of the new Receipt to the user's user_receipts array
     user.user_receipts.push(receipt._id);
+    
+    console.log("User in server: ", user);
+
     // Save the updated user back to the database
     await user.save();
 
