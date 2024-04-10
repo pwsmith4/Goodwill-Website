@@ -67,23 +67,25 @@ router.get('/api/id', async (req, res) => {
 }
 });
 
-// router.put('/users/:id', async (req, res) => {
-//   console.log("ID sent to server: " + req.params.id);
-//   try {
-//     const user = await User.findById(req.params.id);
-//     if (!user) {
-//       return res.status(404).send('User not found');
-//     }
+app.put('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
 
-//     user.receipts = req.body.receipts;    
+    // Add the new receipt to the user's user_receipts array
+    user.user_receipts.push(req.body.newReceipt);
 
-//     await user.save();
-//     res.send({ user });
-//   } catch (error) {
-//     res.status(501).send('Server error');
-//   }
-// });
+    // Save the updated user back to the database
+    await user.save();
 
+    res.send(user);
+  } catch (error) {
+    res.status(500).send('Server error');
+  }
+});
+/*
 router.put('/users/:id', async (req, res) => {
   
   try {
@@ -127,7 +129,7 @@ router.put('/users/:id', async (req, res) => {
     console.error(err);
     res.status(500).send('Server error');
   }
-});
+});*/
 
 
 router.get('/current_user', userVerification, async (req, res) => {
