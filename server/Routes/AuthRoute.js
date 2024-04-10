@@ -85,10 +85,10 @@ router.get('/api/id', async (req, res) => {
 // });
 
 router.put('/users/:id', async (req, res) => {
-  try {/*
+  /*
+  try {
     const { newReceipt } = req.body;
     // Check if newReceipt is provided
-    
     if (!newReceipt) {
       return res.status(400).send('No receipt provided');
     }
@@ -97,8 +97,8 @@ router.put('/users/:id', async (req, res) => {
     if (!user) {
       return res.status(404).send('User not found');
     }
-    console.log("User before server: ", user);*/
-/*  // Separate the info in newReceipt
+    console.log("User before server: ", user);
+  // Separate the info in newReceipt
   const { receipt_id, timestamp, store_number, donation_value } = newReceipt;
 
   // Create a new Receipt object with the separated info
@@ -107,8 +107,8 @@ router.put('/users/:id', async (req, res) => {
     timestamp,
     store_number,
     donation_value
-  });    // Save the new Receipt to the database */
-   // await receipt.save();
+  });    // Save the new Receipt to the database
+    await receipt.save();
     console.log("Receipt in server: ", receipt);
     // Add the _id of the new Receipt to the user's user_receipts array
     user.user_receipts.push(receipt._id);
@@ -122,7 +122,7 @@ router.put('/users/:id', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
-  }
+  }*/
 });
 
 
