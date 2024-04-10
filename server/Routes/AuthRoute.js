@@ -99,8 +99,9 @@ router.put('/users/:id', async (req, res) => {
     }
     console.log("User before server: ", user);
   // Separate the info in newReceipt
-  /*const { receipt_id, timestamp, store_number, donation_value } = newReceipt;
-
+  const { receipt_id, timestamp, store_number, donation_value } = newReceipt;
+  console.log("Receipt ID: ", receipt_id);
+  /*
   // Create a new Receipt object with the separated info
   user.user_receipts.push({
     receipt_id,
