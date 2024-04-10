@@ -77,19 +77,20 @@ const Home = () => {
           //   { withCredentials: true }
           // );
           //const user = userData;
-          console.log("User Info: ", user.user);
+          
+          console.log("User Info: ", user.user._id);
           await axios.put(
             `${process.env.REACT_APP_BASE_URL}/users/${user.user._id}`,
             { newReceipt: data },
             { withCredentials: true }
           );
           
-          console.log("User Data: ", user);
+          console.log("User Data: ", user.user);
           //const user = userData.user;
           //user.user_receipts.push(userData);
-          console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user._id}`);
-          console.log("User id: ", user._id);
-          console.log("User Receipts: ", user.receipts);
+          console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user.user._id}`);
+          console.log("User id: ", user.user._id);
+          console.log("User Receipts: ", user.user.receipts);
 
           console.log("User Receipts Updated in database");
           setIsModalOpen(false);
