@@ -2,7 +2,7 @@ const { Signup, Login, UpdateAccount, GetCurrentUser } = require("../Controllers
 const { userVerification } = require("../Middlewares/AuthMiddleware");
 const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
-const UserReceipt = require('../Models/UserReceipts');
+const UserReceipt = require('../Models/User_Receipts');
 const User = require('../Models/UserModel');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
@@ -98,13 +98,13 @@ router.put('/users/:id', async (req, res) => {
     }
     console.log("User before server: ", user);
     // Create a new Receipt object with the newReceipt data
-    const receipt = new Receipt(newReceipt);
+    const receipt = new UserReceipt(newReceipt);
     // Save the new Receipt to the database
     await receipt.save();
     console.log("Receipt in server: ", receipt);
     // Add the _id of the new Receipt to the user's user_receipts array
     user.user_receipts.push(receipt._id);
-    
+
     console.log("User in server: ", user);
 
     // Save the updated user back to the database
