@@ -22,6 +22,7 @@ const Home = () => {
     const [cashAmountInput, setCashAmountInput] = useState('');
     const [isOtherDonationModalOpen, setIsOtherDonationModalOpen] = useState(false);
     const [otherAmountInput, setOtherAmountInput] = useState('');
+    const [user, setUser] = useState({});
     const [selectedDate, setSelectedDate] = useState(() => {
       const date = new Date();
       date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
@@ -34,7 +35,7 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          const user = userData.user;
+          user = userData.user;
           console.log("User: ", user);
           const receiptPromises = user.receipts.map(receiptId =>
             axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
@@ -67,11 +68,11 @@ const Home = () => {
           setReceipts(prevReceipts => [...prevReceipts, data]); 
           setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
           console.log("Receipts: ", receipts);
-          const { userData } = await axios.get(
-            `${process.env.REACT_APP_BASE_URL}/current_user`,
-            { withCredentials: true }
-          );
-          const user = userData;
+          // const { userData } = await axios.get(
+          //   `${process.env.REACT_APP_BASE_URL}/current_user`,
+          //   { withCredentials: true }
+          // );
+          //const user = userData;
           console.log("User Info: ", user);
           await axios.put(
             `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
