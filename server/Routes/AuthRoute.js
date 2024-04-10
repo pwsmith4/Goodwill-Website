@@ -112,7 +112,10 @@ router.put('/users/:id', async (req, res) => {
   };
 
   // Add the newReceiptObject to the user's user_receipts array
-  user.user_receipts.push(newReceiptObject);
+  user.user_receipts.push(receipt_id,
+    timestamp,
+    store_number,
+    donation_value);
 
   // Save the updated user back to the database
   await user.save();
