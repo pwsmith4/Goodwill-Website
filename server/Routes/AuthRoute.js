@@ -96,8 +96,9 @@ router.put('/users/:id', async (req, res) => {
         if (!user) {
           return res.status(404).send('User not found');
         }
-    
+    console.log("New Receipt: ", newReceipt);
     user.user_receipts.push(newReceipt);
+    console.log("New User Receipts: ", user);
     await user.save();
     res.send({ user });
     //user is full user object
