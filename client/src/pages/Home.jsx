@@ -22,7 +22,7 @@ const Home = () => {
     const [cashAmountInput, setCashAmountInput] = useState('');
     const [isOtherDonationModalOpen, setIsOtherDonationModalOpen] = useState(false);
     const [otherAmountInput, setOtherAmountInput] = useState('');
-    const [user, setUser] = useState({receipts: [] });
+    const [user, setUser] = useState();
     const [selectedDate, setSelectedDate] = useState(() => {
       const date = new Date();
       date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
@@ -36,7 +36,7 @@ const Home = () => {
             { withCredentials: true }
           );
           console.log("User Data: ", userData);
-          setUser(userData);
+          setUser(userData.user);
           console.log("User: ", user);
           // console.log("User: ", user);
           // const receiptPromises = user.receipts.map(receiptId =>
