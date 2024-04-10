@@ -35,7 +35,7 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          user = userData.user;
+          setUser(userData.user);
           console.log("User: ", user);
           const receiptPromises = user.receipts.map(receiptId =>
             axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
