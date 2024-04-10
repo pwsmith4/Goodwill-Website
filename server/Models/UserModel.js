@@ -41,13 +41,25 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
-  id: {
-    type: String,
-  },
-  user_receipts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'UserReceipt'
-  }]
+  user_receipts: [
+    {
+      receipt_id: {
+        type: String,
+        required: true,
+      },
+      timestamp: {
+        type: String,
+        required: true,
+      },
+      store_number: {
+        type: Number,
+        required: true,
+      },
+      donation_value: {
+        type: Number,
+      }
+    }
+  ]
 });
 
 userSchema.methods.updateWithoutHashing = function(data, callback) {
