@@ -69,7 +69,8 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          console.log("Response: ", data); //data is the new receipt information
+          data = data.user;
+          console.log("Response: ", data.user); //data is the new receipt information
           setReceipts(prevReceipts => [...prevReceipts, data]); 
           setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
           console.log("Receipts: ", receipts);
