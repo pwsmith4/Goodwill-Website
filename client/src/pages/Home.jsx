@@ -34,7 +34,7 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          console.log("User Data: ", userData);
+          console.log("Initial User Data: ", userData);
 
           // console.log("User: ", user);
           // const receiptPromises = user.receipts.map(receiptId =>
@@ -64,6 +64,10 @@ const Home = () => {
           { params: { id: receiptIdInput }, withCredentials: true }
         );
         if (data) {
+          const { data: user } = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/current_user`,
+            { withCredentials: true }
+          );
           console.log("Response: ", data); //data is the new receipt information
           setReceipts(prevReceipts => [...prevReceipts, data]); 
           setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
