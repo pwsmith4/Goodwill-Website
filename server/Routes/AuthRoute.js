@@ -84,25 +84,39 @@ router.get('/api/id', async (req, res) => {
 //   }
 // });
 
-router.put('/users', async (req, res) => {
+router.put('/users/:id', async (req, res) => {
   try {
-    //user is full user object
-    const user = req.params.user;
-    //receipt is receipt _.id
-    const receipt = await Receipt_id.findOne({'receipt_id': req.params.receipts.receipt_id});
-    if (!receipt) {
-      return res.status(404).send('Receipt not found');
-    }
-
-    const userReceipt = new UserReceipt({ receipt, user });
-    await userReceipt.save();
-    console.log("Saved User Receipt: ", userReceipt , "User: ", user);
-    user.user_receipts.push(receipt);
+    const { newReceipt } = req.body;
+        // Check if newReceipt is provided
+        if (!newReceipt) {
+          return res.status(400).send('No receipt provided');
+        }
+    const user = await User.findById(req.params.id);
+        // Check if user exists
+        if (!user) {
+          return res.status(404).send('User not found');
+        }
+    
+    user.user_receipts.push(newReceipt);
     await user.save();
-
     res.send({ user });
+    //user is full user object
+  //   const user = req.params.user;
+  //   //receipt is receipt _.id
+  //   const receipt = await Receipt_id.findOne({'receipt_id': req.params.receipts});
+  //   if (!receipt) {
+  //     return res.status(404).send('Receipt not found');
+  //   }
+
+  //   const userReceipt = new UserReceipt({ receipt, user });
+  //   await userReceipt.save();
+  //   console.log("Saved User Receipt: ", userReceipt , "User: ", user);
+  //   user.user_receipts.push(receipt);
+  //   await user.save();
+
+  //   res.send({ user });
   } catch (error) {
-    res.status(501).send('Server error');
+    res.status(500).send('Server error');
   }
 });
 

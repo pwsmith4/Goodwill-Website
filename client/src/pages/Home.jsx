@@ -67,15 +67,15 @@ const Home = () => {
           setReceipts(prevReceipts => [...prevReceipts, data]); 
           setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
           console.log("Receipts: ", receipts);
-          const { data: userData } = await axios.get(
+          const { userData } = await axios.get(
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          const user = userData;
+          const user = userData.user;
           console.log("User: ", user);
           await axios.put(
-            `${process.env.REACT_APP_BASE_URL}/users`,
-            {params: {user, receipts: data}},
+            `${process.env.REACT_APP_BASE_URL}/users/${user._id}`,
+            { newReceipt: data },
             { withCredentials: true }
           );
           
