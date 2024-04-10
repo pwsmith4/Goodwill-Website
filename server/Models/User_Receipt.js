@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ReceiptSchema = new mongoose.Schema({
+const UserReceiptSchema = new mongoose.Schema({
   receipt_id: {
     type: String,
     required: true,
@@ -19,4 +19,4 @@ const ReceiptSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('user_receipts', ReceiptSchema);
+module.exports = mongoose.model('userReceipts', UserReceiptSchema);
