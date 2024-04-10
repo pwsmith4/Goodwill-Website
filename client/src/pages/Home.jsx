@@ -22,7 +22,7 @@ const Home = () => {
     const [cashAmountInput, setCashAmountInput] = useState('');
     const [isOtherDonationModalOpen, setIsOtherDonationModalOpen] = useState(false);
     const [otherAmountInput, setOtherAmountInput] = useState('');
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({receipts: [] });
     const [selectedDate, setSelectedDate] = useState(() => {
       const date = new Date();
       date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
