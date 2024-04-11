@@ -69,7 +69,7 @@ router.get('/api/id', async (req, res) => {
 });
 
 router.put('/users/:id', async (req, res) => {
-  /*
+  
   try {
 //    const user = await User.findById(req.params.id);
 const { newReceipt, userInfo } = req.body;
@@ -82,9 +82,9 @@ const userData = await User.findById(req.userInfo._id);
     userData.user_receipts.push(newReceipt);
 
     //delete userData.password;
-    await user.save();  
+    //await user.save();  
 
-    res.send({ user: userData });
+    //res.send({ user: userData });
 
     // Add the new receipt to the user's user_receipts array
 
@@ -92,7 +92,7 @@ const userData = await User.findById(req.userInfo._id);
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
-  }*/
+  }
 });
 /*
 router.put('/users/:id', async (req, res) => {
