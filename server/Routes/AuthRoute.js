@@ -80,7 +80,7 @@ router.put('/users/:id', async (req, res) => {
      userInfo.user_receipts.push(newReceipt);
 
     // Save the updated user back to the database
-    //await user.save();
+    await userInfo.save();
 
     res.send(userInfo);
   } catch (error) {
