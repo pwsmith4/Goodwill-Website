@@ -75,7 +75,6 @@ const user = await User.findById(req.userInfo._id);
     if (!user) {
       return res.status(404).send('User not found');
     }
-    user = req.body.userInfo;
     const newReceipt = req.body.newReceipt;
     if (!user) {
       return res.status(404).send('User not found');
