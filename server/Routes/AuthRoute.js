@@ -89,6 +89,7 @@ const user = await User.findById(req.userInfo._id);
     // Save the updated user back to the database
 
   } catch (error) {
+    console.error(error);
     res.status(500).send('Server error');
   }
 });
