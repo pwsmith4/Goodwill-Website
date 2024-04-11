@@ -78,9 +78,9 @@ const user = await User.findById(req.userInfo._id);
     
     const newReceipt = req.newReceipt;
     const userData = user.toObject();
-    userData.user_receipts.push(newReceipt);
+   // userData.user_receipts.push(newReceipt);
 
-    delete userData.password;
+    //delete userData.password;
   
     res.send({ user: userData });
 
