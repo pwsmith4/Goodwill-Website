@@ -75,10 +75,9 @@ const user = await User.findById(req.userInfo._id);
     if (!user) {
       return res.status(404).send('User not found');
     }
+    
     const newReceipt = req.body.newReceipt;
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
+
 
     // Add the new receipt to the user's user_receipts array
      user.user_receipts.push(newReceipt);
