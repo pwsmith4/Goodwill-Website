@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-const receiptSchema = new mongoose.Schema({
-  receipt_id: String,
-  timestamp: String,
-  store_number: Number,
-  donation_value: Number,
-  // Add more fields as needed
-});
+// const receiptSchema = new mongoose.Schema({
+//   receipt_id: String,
+//   timestamp: String,
+//   store_number: Number,
+//   donation_value: Number,
+//   // Add more fields as needed
+// });
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -49,7 +49,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
-  user_receipts: [receiptSchema],
+  //user_receipts: [receiptSchema],
 
 });
 
