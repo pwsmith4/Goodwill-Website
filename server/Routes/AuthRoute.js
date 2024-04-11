@@ -75,7 +75,7 @@ app.put('/users/:id', async (req, res) => {
     }
 
     // Add the new receipt to the user's user_receipts array
-    user.user_receipts.push(req.body.newReceipt);
+   // user.user_receipts.push(req.body.newReceipt);
 
     // Save the updated user back to the database
     await user.save();
