@@ -68,7 +68,7 @@ router.get('/api/id', async (req, res) => {
 });
 
 router.put('/users/:id', async (req, res) => {
-  
+  const user = req.body.userInfo;
   try {
 //    const user = await User.findById(req.params.id);
     if (!user) {
