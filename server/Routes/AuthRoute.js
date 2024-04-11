@@ -69,6 +69,7 @@ router.get('/api/id', async (req, res) => {
 });
 
 router.put('/users/:id', async (req, res) => {
+  /*
   try {
 //    const user = await User.findById(req.params.id);
 const { newReceipt, userInfo } = req.body;
@@ -91,7 +92,7 @@ const userData = await User.findById(req.userInfo._id);
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
-  }
+  }*/
 });
 /*
 router.put('/users/:id', async (req, res) => {
