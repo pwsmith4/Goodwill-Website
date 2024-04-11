@@ -77,15 +77,17 @@ const user = await User.findById(req.userInfo._id);
     }
     
     const newReceipt = req.newReceipt;
+    const userData = user.toObject();
+    userData.user_receipts.push(newReceipt);
 
+    delete userData.password;
+  
+    res.send({ user: userData });
 
     // Add the new receipt to the user's user_receipts array
-     user.user_receipts.push(newReceipt);
 
     // Save the updated user back to the database
-    await user.save();
 
-    res.send(userInfo);
   } catch (error) {
     res.status(500).send('Server error');
   }
