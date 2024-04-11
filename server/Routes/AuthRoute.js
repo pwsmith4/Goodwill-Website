@@ -70,7 +70,7 @@ router.get('/api/id', async (req, res) => {
 router.put('/users/:id', async (req, res) => {
   try {
 //    const user = await User.findById(req.params.id);
-    const user = req.userInfo;
+    const user = req.body.userInfo;
     const newReceipt = req.body.newReceipt;
     if (!user) {
       return res.status(404).send('User not found');
