@@ -78,11 +78,11 @@ const userData = await User.findById(req.userInfo._id);
       return res.status(404).send('User not found');
     }
     
-    const user = userData;
+    //const user = userData;
     //user.user_receipts.push(newReceipt);
 
     //delete userData.password;
-    await user.save();  
+    await userData.save();  
 
     //res.send({ user: userData });
 
