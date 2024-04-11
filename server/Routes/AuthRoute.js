@@ -67,7 +67,7 @@ router.get('/api/id', async (req, res) => {
 }
 });
 
-app.put('/users/:id', async (req, res) => {
+router.put('/users/:id', async (req, res) => {
   /*
   try {
 //    const user = await User.findById(req.params.id);
