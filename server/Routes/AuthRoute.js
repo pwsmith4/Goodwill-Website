@@ -73,8 +73,8 @@ router.put('/users/:id', async (req, res) => {
   try {
 //    const user = await User.findById(req.params.id);
 const { newReceipt, userInfo } = req.body;
-const userData = await User.findById(req.userInfo._id);
-    if (!userData) {
+const user = await User.findById(req.userInfo._id);
+    if (!user) {
       return res.status(404).send('User not found');
     }
     
@@ -82,7 +82,7 @@ const userData = await User.findById(req.userInfo._id);
     //user.user_receipts.push(newReceipt);
 
     //delete userData.password;
-    await userData.save();  
+    await user.save();  
 
     //res.send({ user: userData });
 
