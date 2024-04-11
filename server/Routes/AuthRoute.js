@@ -71,23 +71,23 @@ router.get('/api/id', async (req, res) => {
 router.put('/users/:id', async (req, res) => {
   try {
 //    const user = await User.findById(req.params.id);
-const user = await User.findById(req.userInfo._id);
-    if (!user) {
+const { newReceipt, userInfo } = req.body;
+const userData = await User.findById(req.userInfo._id);
+    if (!userData) {
       return res.status(404).send('User not found');
     }
     
-    const newReceipt = req.newReceipt;
-    const userData = user.toObject();
-   // userData.user_receipts.push(newReceipt);
+    const user = userData.toObject();
+    userData.user_receipts.push(newReceipt);
 
     //delete userData.password;
-  
+    await user.save();  
+
     res.send({ user: userData });
 
     // Add the new receipt to the user's user_receipts array
 
     // Save the updated user back to the database
-    await user.save();  
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
