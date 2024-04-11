@@ -4,6 +4,7 @@ const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
 //const UserReceipt = require('../Models/User_Receipts');
 const User = require('../Models/UserModel');
+const UserInfo = require('../Models/UserModel');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
@@ -70,17 +71,21 @@ router.get('/api/id', async (req, res) => {
 router.put('/users/:id', async (req, res) => {
   try {
 //    const user = await User.findById(req.params.id);
-    const userInfo = req.body.userInfo;
+const user = await User.findById(req.userInfo._id);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    user = req.body.userInfo;
     const newReceipt = req.body.newReceipt;
-    if (!userInfo) {
+    if (!user) {
       return res.status(404).send('User not found');
     }
 
     // Add the new receipt to the user's user_receipts array
-     userInfo.user_receipts.push(newReceipt);
+     user.user_receipts.push(newReceipt);
 
     // Save the updated user back to the database
-    await userInfo.save();
+    await user.save();
 
     res.send(userInfo);
   } catch (error) {
