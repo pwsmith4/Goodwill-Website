@@ -79,10 +79,10 @@ const userData = await User.findById(req.userInfo._id);
     }
     
     const user = userData.toObject();
-    userData.user_receipts.push(newReceipt);
+    user.user_receipts.push(newReceipt);
 
     //delete userData.password;
-    //await user.save();  
+    await user.save();  
 
     //res.send({ user: userData });
 
