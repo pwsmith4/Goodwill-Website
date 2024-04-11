@@ -87,7 +87,7 @@ const user = await User.findById(req.userInfo._id);
     // Add the new receipt to the user's user_receipts array
 
     // Save the updated user back to the database
-
+    await user.save();  
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
