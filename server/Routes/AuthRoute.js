@@ -68,6 +68,7 @@ router.get('/api/id', async (req, res) => {
 });
 
 app.put('/users/:id', async (req, res) => {
+  /*
   try {
 //    const user = await User.findById(req.params.id);
     if (!user) {
@@ -83,7 +84,7 @@ app.put('/users/:id', async (req, res) => {
     res.send(user);
   } catch (error) {
     res.status(500).send('Server error');
-  }
+  }*/
 });
 /*
 router.put('/users/:id', async (req, res) => {
