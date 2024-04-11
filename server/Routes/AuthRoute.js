@@ -68,15 +68,16 @@ router.get('/api/id', async (req, res) => {
 });
 
 router.put('/users/:id', async (req, res) => {
-  const user = req.body.userInfo;
   try {
 //    const user = await User.findById(req.params.id);
+    const user = req.body.userInfo;
+    const newReceipt = req.body.newReceipt;
     if (!user) {
       return res.status(404).send('User not found');
     }
 
     // Add the new receipt to the user's user_receipts array
-    user.user_receipts.push(req.body.newReceipt);
+   // user.user_receipts.push(newReceipt);
 
     // Save the updated user back to the database
     await user.save();
