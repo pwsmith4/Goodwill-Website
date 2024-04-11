@@ -70,9 +70,9 @@ router.get('/api/id', async (req, res) => {
 router.put('/users/:id', async (req, res) => {
   try {
 //    const user = await User.findById(req.params.id);
-    const user = req.body.userInfo;
+    const userInfo = req.body.userInfo;
     const newReceipt = req.body.newReceipt;
-    if (!user) {
+    if (!userInfo) {
       return res.status(404).send('User not found');
     }
 
@@ -80,9 +80,9 @@ router.put('/users/:id', async (req, res) => {
    // user.user_receipts.push(newReceipt);
 
     // Save the updated user back to the database
-    await user.save();
+    //await user.save();
 
-    res.send(user);
+    res.send(userInfo);
   } catch (error) {
     res.status(500).send('Server error');
   }
