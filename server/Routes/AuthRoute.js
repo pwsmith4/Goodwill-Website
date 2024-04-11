@@ -79,6 +79,7 @@ const user = await User.findById(userInfo._id);
     }
     
     //const user = userData;
+    console.log("New Receipt in server: " + newReceipt);
     user.user_receipts.push(newReceipt);
 
     //delete userData.password;
