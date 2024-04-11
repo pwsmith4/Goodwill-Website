@@ -77,7 +77,7 @@ router.put('/users/:id', async (req, res) => {
     }
 
     // Add the new receipt to the user's user_receipts array
-   // user.user_receipts.push(newReceipt);
+     userInfo.user_receipts.push(newReceipt);
 
     // Save the updated user back to the database
     //await user.save();
