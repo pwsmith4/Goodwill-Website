@@ -79,7 +79,7 @@ const user = await User.findById(userInfo._id);
     }
     
     //const user = userData;
-    //user.user_receipts.push(newReceipt);
+    user.user_receipts.push(newReceipt);
 
     //delete userData.password;
 
