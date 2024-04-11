@@ -76,7 +76,7 @@ const user = await User.findById(req.userInfo._id);
       return res.status(404).send('User not found');
     }
     
-    const newReceipt = req.body.newReceipt;
+    const newReceipt = req.newReceipt;
 
 
     // Add the new receipt to the user's user_receipts array
