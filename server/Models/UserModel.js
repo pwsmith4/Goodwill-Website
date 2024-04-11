@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-/*
-const receiptSchema = new mongoose.Schema({
-  receipt_id: String,
-  timestamp: String,
-  store_number: Number,
-  donation_value: Number,
-  // Add more fields as needed
-});
-*/
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -49,8 +41,13 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: new Date(),
   },
-  //user_receipts: [receiptSchema],
-
+  id: {
+    type: String,
+  },
+  user_receipts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'UserReceipt'
+  }]
 });
 
 userSchema.methods.updateWithoutHashing = function(data, callback) {
@@ -67,7 +64,7 @@ userSchema.methods.updateWithoutHashing = function(data, callback) {
     state: data.state || user.state,
     zipcode: data.zipcode || user.zipcode,
     id: data.id || user.id,
-    receipts: data.user_receipts || user.receipts
+    receipts: data.receipts || user.receipts
   };
 
   return User.updateOne({ _id: user._id }, { $set: update }, callback);
