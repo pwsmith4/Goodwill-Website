@@ -35,6 +35,9 @@ const Home = () => {
             { withCredentials: true }
           );
           console.log("Initial User Data: ", userData);
+          setReceipts(userData.user.user_receipts);
+          console.log("User: ", user);
+          console.log("SetReceipts: " + receipts);
 
           // console.log("User: ", user);
           // const receiptPromises = user.receipts.map(receiptId =>
