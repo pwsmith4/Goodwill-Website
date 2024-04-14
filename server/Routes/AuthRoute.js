@@ -80,8 +80,6 @@ const user = await User.findById(userInfo._id);
     console.log("New Receipt in server: " + newReceipt);
     user.user_receipts.push(newReceipt);
 
-    delete userData.password;
-
     await user.save();
     res.send({user});
   } catch (error) {
