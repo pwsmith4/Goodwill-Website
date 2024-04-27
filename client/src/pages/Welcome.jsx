@@ -4,9 +4,9 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Logo from '../img/Example-Logo.png';
-import img1 from '../img/img1.jpg';
-import img2 from '../img/img2.jpg';
-import img3 from '../img/img3.jpg';
+import img1 from '../img/ex-img1.jpg';
+import img2 from '../img/ex-img2.jpg';
+import img3 from '../img/ex-img3.jpg';
 import './Welcome.css';
 import { Link } from "react-router-dom";
 import Footer from '../components/Footer';
@@ -134,7 +134,7 @@ const Welcome = () => {
     </div>
     <NavigationDots currentImageIndex={currentImageIndex} setCurrentImageIndex={setCurrentImageIndex} imagesLength={images.length} />
     <h1 className="welcome">Welcome</h1>
-      <p className="welcome-info">Welcome to the customer portal for Goodwill Sacramento Valley & Northern Nevada! This site is designed to provide you, our customers and donors, access to tools and information to make your donating experience even better. Thank you for changing lives for good!</p>
+      <p className="welcome-info">Welcome to the customer portal for Example Company Sacramento Valley! This site is designed to provide you, our customers and donors, access to tools and information to make your donating experience even better. Thank you for changing lives for good!</p>
       <Footer/>
     </>
   );

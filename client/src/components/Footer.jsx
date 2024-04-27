@@ -14,7 +14,7 @@ function Footer() {
         <h3><Link to="/Privacy">Privacy Policy</Link></h3>
       </div>
       <div className="get-in-touch">
-        <h2>Example Website</h2>
+        <h2>Main Company Website</h2>
         <h3><a href="https://google.com" target="_blank" rel="noopener noreferrer">Example Website</a></h3>
       </div>
     </div>
