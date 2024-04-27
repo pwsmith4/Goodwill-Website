@@ -226,8 +226,8 @@ const scrollStyle = {
     position: 'sticky', /* Add position relative */
     top: '0px', /* Move down 10px */
     left: '50%', 
-    transform: 'translate(-50%, -50%)', // Adjust for the button's own width and height
-    bottom: '-20px',
+    transform: 'translate(-50%, 0%)', // Adjust for the button's own width and height
+    bottom: '20px',
     alignSelf: 'end',
     scrollBehavior: 'smooth',
     marginRight: '10px', /* Add 5px of space between buttons */
