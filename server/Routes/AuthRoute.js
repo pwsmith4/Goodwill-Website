@@ -4,6 +4,7 @@ const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
 //const UserReceipt = require('../Models/User_Receipts');
 const User = require('../Models/UserModel');
+const UserInfo = require('../Models/UserModel');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
@@ -67,24 +68,23 @@ router.get('/api/id', async (req, res) => {
 }
 });
 
-router.put('/users/:id', async (req, res) => {
+router.put('/users', async (req, res) => {
+  
   try {
-//    const user = await User.findById(req.params.id);
-    const user = req.body.userInfo;
-    const newReceipt = req.body.newReceipt;
+const { newReceipt, userInfo } = req.body;
+const user = await User.findById(userInfo._id);
     if (!user) {
       return res.status(404).send('User not found');
     }
+    //const user = userData;
+    console.log("New Receipt in server: " + newReceipt);
+    user.user_receipts.push(newReceipt);
 
-    // Add the new receipt to the user's user_receipts array
-   // user.user_receipts.push(newReceipt);
-
-    // Save the updated user back to the database
     await user.save();
-
-    res.send(user);
+    res.send({user});
   } catch (error) {
-    res.status(500).send('Server error');
+    console.error(error);
+    res.status(500).send('Server errorr');
   }
 });
 /*

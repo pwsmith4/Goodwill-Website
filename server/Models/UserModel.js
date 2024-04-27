@@ -67,7 +67,7 @@ userSchema.methods.updateWithoutHashing = function(data, callback) {
     state: data.state || user.state,
     zipcode: data.zipcode || user.zipcode,
     id: data.id || user.id,
-    user_receipts: data.user_receipts || user.receipts
+    //user_receipts: data.user_receipts || user.receipts
   };
 
   return User.updateOne({ _id: user._id }, { $set: update }, callback);
