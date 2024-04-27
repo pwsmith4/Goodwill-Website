@@ -68,7 +68,7 @@ router.get('/api/id', async (req, res) => {
 }
 });
 
-router.put('/users', async (req, res) => {
+router.put('/users/:id', async (req, res) => {
   
   try {
 const { newReceipt, userInfo } = req.body;

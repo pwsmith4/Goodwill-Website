@@ -349,7 +349,7 @@ const Home = () => {
 <button className="close-button1" onClick={() => setIsOtherDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Other Donation</h2>
       <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
-  <label htmlFor="cashAmountInput" style={{ marginRight: '0px' }}>Donation Value: $ </label>    
+  <label htmlFor="cashAmountInput" style={{ marginRight: '5px', fontSize: '16px' }}>Donation Value: $</label>    
   <input
     id="cashAmountInput"
     value={otherAmountInput}
