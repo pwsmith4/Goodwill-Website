@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import Logo from '../img/Goodwill-Logo.png';
+import Logo from '../img/Example-Logo.png';
 import img1 from '../img/img1.jpg';
 import img2 from '../img/img2.jpg';
 import img3 from '../img/img3.jpg';

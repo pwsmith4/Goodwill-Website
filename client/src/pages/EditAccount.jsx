@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import Logo from '../img/Goodwill-Logo.png';
+import Logo from '../img/Example-Logo.png';
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import './EditAccount.css';

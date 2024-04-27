@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
-import Logo from '../img/Goodwill-Logo.png';
+import Logo from '../img/Example-Logo.png';
 import Footer from '../components/Footer';
 import './Login.css';
 import Signup from "./Signup";

@@ -15,7 +15,7 @@ function Footer() {
       </div>
       <div className="get-in-touch">
         <h2>Example Website</h2>
-        <h3><a href="https://google.com" target="_blank" rel="noopener noreferrer">example website</a></h3>
+        <h3><a href="https://google.com" target="_blank" rel="noopener noreferrer">Example Website</a></h3>
       </div>
     </div>
   );
