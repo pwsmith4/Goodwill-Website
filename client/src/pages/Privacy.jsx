@@ -225,7 +225,8 @@ const scrollStyle = {
     transition: 'background-color 0.3s ease, color 0.3s ease', /* Add a smooth transition */
     position: 'sticky', /* Add position relative */
     top: '0px', /* Move down 10px */
-    left: '50%', /* Move to the left 5px */
+    left: '50%', 
+    transform: 'translate(-50%, -50%)', // Adjust for the button's own width and height
     bottom: '20px',
     alignSelf: 'end',
     scrollBehavior: 'smooth',
