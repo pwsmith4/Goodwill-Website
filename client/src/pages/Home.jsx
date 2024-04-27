@@ -228,7 +228,7 @@ const Home = () => {
             <table className="center-table">
                 <thead>
                     <tr>
-                        <th>Receipt ID</th>
+                        <th>Receipt ID9</th>
                         <th>Date</th>
                         <th>Location</th>
                         <th>Donation Value</th>
