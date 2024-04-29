@@ -38,17 +38,7 @@ const Home = () => {
            setReceipts(userData.user.user_receipts);
            console.log("User Receipts: ", userData.user.user_receipts);
           console.log("Receipts: ", receipts);
-          // const receiptPromises = user.user_receipts.map(receiptId =>
-          //   axios.get(`${process.env.REACT_APP_BASE_URL}/api/id`, {
-          //     params: { id: receiptId },
-          //     withCredentials: true
-          //   })
-          // );
-          
-          // const receiptResponses = await Promise.all(receiptPromises);
-          
-          // const receipts = receiptResponses.map(response => response.data);
-          //   setReceipts(receipts);
+
         } catch (error) {
           console.error("Error" + error);
         }
@@ -136,7 +126,7 @@ const Home = () => {
           { params: {donation_value: e.target.value , id: id}},
           { withCredentials: true }
         );
-        console.log(response.data);
+        console.log("Response" + response.data);
       } catch (error) {
         console.error(error);
       }
