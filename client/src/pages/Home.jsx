@@ -86,7 +86,7 @@ const Home = () => {
           console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user.user._id}`);
           console.log("User id: ", user.user._id);
           console.log("User Receipts: ", user.user.user_receipts);
-          setReceipts(prevReceipts => [...prevReceipts, user.user.user_receipts]);
+          setReceipts(prevReceipts => [...prevReceipts, data]);
           console.log("Receipts: ", receipts);
           console.log("User Receipts Updated in database");
           setIsModalOpen(false);
