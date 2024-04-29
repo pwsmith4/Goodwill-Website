@@ -189,6 +189,7 @@ const Home = () => {
           store_number: 1, // replace with actual store number
           donation_value: amount,
         });
+        console.log("New Receipt: ", newReceipt);
         const plainObject = newReceipt._doc;
         console.log("New Receipt:" +plainObject);
       };
