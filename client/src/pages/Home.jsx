@@ -87,6 +87,7 @@ const Home = () => {
           console.log("User id: ", user.user._id);
           console.log("User Receipts: ", user.user.user_receipts);
           setReceipts(prevReceipts => [...prevReceipts, user.user.user_receipts]);
+          console.log("Receipts: ", receipts);
           console.log("User Receipts Updated in database");
           setIsModalOpen(false);
           setReceiptIdInput('');
