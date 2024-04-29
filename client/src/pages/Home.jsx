@@ -175,7 +175,7 @@ const Home = () => {
         const userInfo = user.user;
         console.log("Response: ", userInfo); //data is the new receipt information 
         console.log("User Info: ", userInfo._id);
-        console.log("New Receipt: ", data);
+        
         const amount = otherAmountInput;
         console.log("Amount: ", amount);
       };
