@@ -61,16 +61,7 @@ const Home = () => {
             { withCredentials: true }
           );
           const userInfo = user.user;
-          console.log("Response: ", userInfo); //data is the new receipt information
-         // setReceipts(prevReceipts => [...prevReceipts, data]); 
-          //setReceiptNotFound(false); //receipts is now an array of all the receipts user has (i think)
-        //  console.log("Receipts: ", receipts);
-          // const { userData } = await axios.get(
-          //   `${process.env.REACT_APP_BASE_URL}/current_user`,
-          //   { withCredentials: true }
-          // );
-          //const user = userData;
-          
+          console.log("Response: ", userInfo); //data is the new receipt information 
           console.log("User Info: ", userInfo._id);
           console.log("New Receipt: ", data);
           const {data: {user: updatedUser}} = await axios.put(
@@ -329,8 +320,13 @@ const Home = () => {
     id="cashAmountInput"
     value={otherAmountInput}
     style={{ fontSize: '16px' }}
-    onChange={e => setCashAmountInput(e.target.value)}
-  />
+    onChange={e => {
+      // Ignore non-numeric input
+      if (!isNaN(e.target.value)) {
+        setOtherAmountInput(e.target.value);
+      }
+      }}  
+      />
   </div>
   <button className="yellow-modal-button" onClick={handleCashDonationSubmit} style={{ marginTop: '5px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>
 </div>
