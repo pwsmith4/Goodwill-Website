@@ -73,7 +73,7 @@ const Home = () => {
           
           console.log("User Info: ", userInfo._id);
           console.log("New Receipt: ", data);
-          const {newUser} = await axios.put(
+          const {data: {user: updatedUser}} = await axios.put(
             `${process.env.REACT_APP_BASE_URL}/users/${userInfo._id}`,
             { newReceipt: data, userInfo },
             { withCredentials: true }
