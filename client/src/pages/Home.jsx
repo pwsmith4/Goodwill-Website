@@ -246,7 +246,7 @@ const Home = () => {
                           WebkitAppearance: 'none',
                           border: 'none'
                         }}
-                        defaultValue={receipt.donation_value} 
+                        value={receipt.donation_value} 
                         onChange={(e) => updateDonationValue(receipt.receipt_id, e)}
                       />
                     </div>
