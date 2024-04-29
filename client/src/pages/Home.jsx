@@ -45,7 +45,7 @@ const Home = () => {
       };
     
       fetchReceipts();
-    }, [receipts]);
+    }, []);
 
     const handleModalSubmit = async () => {
       
