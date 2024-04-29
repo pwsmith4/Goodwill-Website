@@ -79,7 +79,7 @@ const Home = () => {
             { withCredentials: true }
           );
           
-          console.log("User Data: ", newUser);
+          console.log("User Data: ", updatedUser);
           //const user = userData.user;
           //user.user_receipts.push(userData);
           console.log(`Sending to axios: ${process.env.REACT_APP_BASE_URL}/users/${user.user._id}`);
