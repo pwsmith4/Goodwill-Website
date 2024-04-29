@@ -178,7 +178,10 @@ const Home = () => {
         
         const amount = otherAmountInput;
         console.log("Amount: ", amount);
-        console.log("Date: ", selectedDate);
+        const date = new Date(selectedDate);
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+        console.log("Formatted Date: ", formattedDate);      
       };
       
       const handleOtherDonationSubmit = async () => {
