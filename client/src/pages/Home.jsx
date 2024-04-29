@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import './Home.css';
 import Footer from '../components/Footer';
-
+const Receipt = require('../models/Receipt_id');
 const Home = () => {
     const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies([]);
@@ -181,7 +181,15 @@ const Home = () => {
         const date = new Date(selectedDate);
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const formattedDate = date.toLocaleDateString('en-US', options);
-        console.log("Formatted Date: ", formattedDate);      
+        console.log("Formatted Date: ", formattedDate); 
+        
+        const newReceipt = new Receipt({
+          receipt_id: 'some_unique_id', // replace with actual unique id
+          timestamp: formattedDate,
+          store_number: 1, // replace with actual store number
+          donation_value: amount,
+        });
+        console.log("New Receipt: ", newReceipt);
       };
       
       const handleOtherDonationSubmit = async () => {
