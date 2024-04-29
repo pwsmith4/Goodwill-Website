@@ -178,6 +178,7 @@ const Home = () => {
         
         const amount = otherAmountInput;
         console.log("Amount: ", amount);
+        console.log("Date: ", selectedDate);
       };
       
       const handleOtherDonationSubmit = async () => {
