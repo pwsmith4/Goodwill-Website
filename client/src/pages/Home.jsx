@@ -168,6 +168,16 @@ const Home = () => {
 
       const handleCashDonationSubmit = async () => {
         // Handle the form submission here
+        const { data: user } = await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/current_user`,
+          { withCredentials: true }
+        );
+        const userInfo = user.user;
+        console.log("Response: ", userInfo); //data is the new receipt information 
+        console.log("User Info: ", userInfo._id);
+        console.log("New Receipt: ", data);
+        const amount = otherAmountInput;
+        console.log("Amount: ", amount);
       };
       
       const handleOtherDonationSubmit = async () => {
