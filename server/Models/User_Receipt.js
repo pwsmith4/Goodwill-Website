@@ -4,7 +4,6 @@ const UserReceiptSchema = new mongoose.Schema({
   receipt_id: {
     type: String,
     required: true,
-    unique: true
   },
   timestamp: {
     type: String,
