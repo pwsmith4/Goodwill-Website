@@ -28,9 +28,14 @@ router.put('/api/create_receipt', async (req, res) => {
     if (!user) {
       return res.status(404).send('User not found');
     }
-    //const user = userData;
-    console.log("New Receipt in server: " + newReceipt);
-    user.user_receipts.push(newReceipt);
+    // Find the correct index to insert newReceipt in sorted order
+    let i = user.user_receipts.length - 1;
+    while (i >= 0 && new Date(user.user_receipts[i].timestamp) > new Date(timestamp)) {
+      i--;
+    }
+
+    // Insert newReceipt at the correct position
+    user.user_receipts.splice(i + 1, 0, newReceipt);
 
     await user.save();
 
