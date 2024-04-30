@@ -197,6 +197,12 @@ const Home = () => {
             { withCredentials: true }
           );
           console.log("Response from server: ", response.data);
+          const { data: user } = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/current_user`,
+            { withCredentials: true }
+          );
+          const userInfo = user.user;
+          console.log("Response: ", userInfo); //data is the new receipt information
         } catch (error) {
           console.error("Error creating receipt: ", error);
         }
