@@ -14,7 +14,6 @@ const UserReceiptSchema = new mongoose.Schema({
   },
   store_number: {
     type: mongoose.Schema.Types.Mixed,
-    required: true
   },
   donation_value: {
     type: Number,
