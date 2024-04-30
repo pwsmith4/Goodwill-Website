@@ -213,7 +213,47 @@ const Home = () => {
       };
       
       const handleOtherDonationSubmit = async () => {
-        // Handle the form submission here
+        const { data: user } = await axios.get(
+          `${process.env.REACT_APP_BASE_URL}/current_user`,
+          { withCredentials: true }
+        );
+        const userInfo = user.user;
+        console.log("Response: ", userInfo); //data is the new receipt information 
+        console.log("User Info: ", userInfo._id);
+        const userId = userInfo._id;
+        
+        const amount = otherAmountInput;
+        console.log("Amount: ", amount);
+        const date = new Date(selectedDate);
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+        console.log("Formatted Date: ", formattedDate); 
+        
+
+          const receipt_id= 'Other'; // replace with actual unique id
+          const timestamp= formattedDate;
+          const store_number= null; // replace with actual store number
+          const donation_value= amount;
+        
+
+        try {
+          const response = await axios.put(
+            `${process.env.REACT_APP_BASE_URL}/api/create_receipt`,
+            { receipt_id, timestamp, store_number, donation_value, userId },
+            { withCredentials: true }
+          );
+          const { data: userData } = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/current_user`,
+            { withCredentials: true }
+          );
+           console.log("User: ", userData.user);
+           setReceipts(userData.user.user_receipts);
+          setIsOtherDonationModalOpen(false);
+          setIsOtherDonationInput('');
+
+        } catch (error) {
+          console.error("Error creating receipt: ", error);
+        }
       };
       
     return (
