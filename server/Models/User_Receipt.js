@@ -21,4 +21,4 @@ const UserReceiptSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('userReceipts', UserReceiptSchema);
+module.exports = mongoose.model('userReceiptss', UserReceiptSchema);
