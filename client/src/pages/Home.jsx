@@ -197,6 +197,12 @@ const Home = () => {
             { receipt_id, timestamp, store_number, donation_value, userId },
             { withCredentials: true }
           );
+          const { data: userData } = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/current_user`,
+            { withCredentials: true }
+          );
+           console.log("User: ", userData.user);
+           setReceipts(userData.user.user_receipts);
           setIsCashDonationModalOpen(false);
           setOtherAmountInput('');
 
