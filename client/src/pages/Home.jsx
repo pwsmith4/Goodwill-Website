@@ -175,6 +175,7 @@ const Home = () => {
         const userInfo = user.user;
         console.log("Response: ", userInfo); //data is the new receipt information 
         console.log("User Info: ", userInfo._id);
+        const userId = userInfo._id;
         
         const amount = otherAmountInput;
         console.log("Amount: ", amount);
@@ -193,16 +194,12 @@ const Home = () => {
         try {
           const response = await axios.put(
             `${process.env.REACT_APP_BASE_URL}/api/create_receipt`,
-            { receipt_id, timestamp, store_number, donation_value },
+            { receipt_id, timestamp, store_number, donation_value, userId },
             { withCredentials: true }
           );
-          //console.log("Response from server: ", response.data);
-          // const { data: user } = await axios.get(
-          //   `${process.env.REACT_APP_BASE_URL}/current_user`,
-          //   { withCredentials: true }
-          // );
-          // const userInfo = user;
-          // console.log("Response: ", userInfo); //data is the new receipt information
+          setIsCashDonationModalOpen(false);
+          setOtherAmountInput('');
+
         } catch (error) {
           console.error("Error creating receipt: ", error);
         }

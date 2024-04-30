@@ -16,7 +16,7 @@ router.post('/update_account', UpdateAccount);
 
 router.put('/api/create_receipt', async (req, res) => {
   try {
-    const { receipt_id, timestamp, store_number, donation_value } = req.body;
+    const { receipt_id, timestamp, store_number, donation_value, userId } = req.body;
 
     const newReceipt = new Receipt({
       receipt_id,
@@ -24,10 +24,17 @@ router.put('/api/create_receipt', async (req, res) => {
       store_number,
       donation_value
     });
+    const user = await User.findById(userInfo._id);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    //const user = userData;
+    console.log("New Receipt in server: " + newReceipt);
+    user.user_receipts.push(newReceipt);
 
-    await newReceipt.save();
+    await user.save();
 
-    res.send(newReceipt);
+    res.send({user});
   } catch (error) {
     console.log(error);
     res.status(500).send(`Server error: ${error.message}`);
