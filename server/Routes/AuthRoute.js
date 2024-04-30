@@ -30,7 +30,7 @@ router.put('/api/create_receipt', async (req, res) => {
     res.send(newReceipt);
   } catch (error) {
     console.log(error);
-    res.status(500).send('Server error');
+    res.status(500).send(`Server error: ${error.message}`);
   }
 });
 
