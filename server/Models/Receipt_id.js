@@ -5,7 +5,7 @@ const ReceiptSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: function() {
-      return this.store_number != 0;
+      return this.receipt_id !== "unique_id";
     }
   },
   timestamp: {

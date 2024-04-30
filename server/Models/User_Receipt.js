@@ -4,6 +4,9 @@ const UserReceiptSchema = new mongoose.Schema({
   receipt_id: {
     type: String,
     required: true,
+    unique: function() {
+      return this.receipt_id !== "unique_id";
+    }
   },
   timestamp: {
     type: String,
