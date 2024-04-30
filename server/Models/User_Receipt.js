@@ -5,7 +5,7 @@ const UserReceiptSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: function() {
-      return this.receipt_id !== "N/A";
+      return this.receipt_id !== "Cash Donation";
     }
   },
   timestamp: {
@@ -13,7 +13,7 @@ const UserReceiptSchema = new mongoose.Schema({
     required: true
   },
   store_number: {
-    type: Number,
+    type: mongoose.Schema.Types.Mixed,
     required: true
   },
   donation_value: {
