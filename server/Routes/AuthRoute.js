@@ -18,16 +18,16 @@ router.put('/api/create_receipt', async (req, res) => {
   try {
     const { receipt_id, timestamp, store_number, donation_value } = req.body;
 
-    const newReceipt = new Receipt({
-      receipt_id,
-      timestamp,
-      store_number,
-      donation_value
-    });
+    // const newReceipt = new Receipt({
+    //   receipt_id,
+    //   timestamp,
+    //   store_number,
+    //   donation_value
+    // });
 
-    await newReceipt.save();
+    // await newReceipt.save();
 
-    res.send(newReceipt._doc);
+    // res.send(newReceipt);
   } catch (error) {
     console.log(error);
     res.status(500).send('Server error');
