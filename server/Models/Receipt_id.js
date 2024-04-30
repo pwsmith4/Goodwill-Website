@@ -4,14 +4,16 @@ const ReceiptSchema = new mongoose.Schema({
   receipt_id: {
     type: String,
     required: true,
-    unique: true
+    unique: function() {
+      return this.store_number != 'N/A';
+    }
   },
   timestamp: {
     type: String,
     required: true
   },
   store_number: {
-    type: Number,
+    type: String,
     required: true
   },
   donation_value: {
