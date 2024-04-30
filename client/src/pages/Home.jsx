@@ -187,7 +187,7 @@ const Home = () => {
 
           const receipt_id= 'Cash Donation'; // replace with actual unique id
           const timestamp= formattedDate;
-          const store_number= 'N/A'; // replace with actual store number
+          const store_number= null; // replace with actual store number
           const donation_value= amount;
         
 

@@ -10,7 +10,7 @@ const ReceiptSchema = new mongoose.Schema({
     required: true
   },
   store_number: {
-    type: Number,
+    type: mongoose.Schema.Types.Mixed,
     required: true
   },
   donation_value: {
