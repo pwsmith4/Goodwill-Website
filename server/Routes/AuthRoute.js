@@ -2,6 +2,7 @@ const { Signup, Login, UpdateAccount, GetCurrentUser } = require("../Controllers
 const { userVerification } = require("../Middlewares/AuthMiddleware");
 const router = require("express").Router();
 const Receipt_id = require('../Models/Receipt_id');
+const Receipt = require('../Models/User_Receipt');
 //const UserReceipt = require('../Models/User_Receipts');
 const User = require('../Models/UserModel');
 const UserInfo = require('../Models/UserModel');
@@ -26,7 +27,7 @@ router.put('/api/create_receipt', async (req, res) => {
 
     await newReceipt.save();
 
-    res.send(newReceipt);
+    res.send(newReceipt._doc);
   } catch (error) {
     res.status(500).send('Server error');
   }
