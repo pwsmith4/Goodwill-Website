@@ -56,19 +56,7 @@ const Home = () => {
           { params: { id: receiptIdInput }, withCredentials: true }
         );
         if (data) {
-          const { data: user } = await axios.get(
-            `${process.env.REACT_APP_BASE_URL}/current_user`,
-            { withCredentials: true }
-          );
-          const userInfo = user.user;
-          console.log("Response: ", userInfo); //data is the new receipt information 
-          console.log("User Info: ", userInfo._id);
-          console.log("New Receipt: ", data);
-          const {data: {user: updatedUser}} = await axios.put(
-            `${process.env.REACT_APP_BASE_URL}/users/${userInfo._id}`,
-            { newReceipt: data, userInfo },
-            { withCredentials: true }
-          );
+
           
           console.log("User Data: ", updatedUser);
 
