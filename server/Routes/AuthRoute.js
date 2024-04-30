@@ -24,7 +24,7 @@ router.put('/api/create_receipt', async (req, res) => {
       store_number,
       donation_value
     });
-    const user = await User.findById(userInfo._id);
+    const user = await User.findById(userId);
     if (!user) {
       return res.status(404).send('User not found');
     }
