@@ -420,7 +420,35 @@ const Home = () => {
 <div className="modal-content1" onClick={e => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>      
 <button className="close-button1" onClick={() => setIsOtherDonationModalOpen(false)}>X</button>
       <h2 style={{ textAlign: 'center' }}>Other Donation</h2>
-      <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
+      <div className="input-group" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+    <label htmlFor="dateInput" style={{ fontSize: '16px', marginRight: '5px' }}>Donation Date:</label>    
+    <input
+      style = {{fontSize: '16px', alignItems: 'center'}}
+      type="date"
+      id="dateInput"
+      value={selectedDate.toISOString().substr(0, 10)}
+      onChange={e => {
+        const date = new Date(e.target.value);
+        date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+        // Check whether the date is valid
+        if (isNaN(date)) {
+          alert('Invalid date');
+          return;
+        }
+        // Check whether the date is in the future
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);  // Set the time to 00:00:00.000
+        if (date > now) {
+          alert('The date cannot be in the future');
+          return;
+        }
+        setSelectedDate(date);
+      }}
+    />
+    </div>
+  </div>  
+  <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
   <label htmlFor="cashAmountInput" style={{ marginRight: '5px', fontSize: '16px' }}>Donation Value: $</label>    
   <input
     id="cashAmountInput"
