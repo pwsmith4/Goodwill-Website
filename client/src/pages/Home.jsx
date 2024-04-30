@@ -201,7 +201,7 @@ const Home = () => {
             `${process.env.REACT_APP_BASE_URL}/current_user`,
             { withCredentials: true }
           );
-          const userInfo = user.user;
+          const userInfo = user;
           console.log("Response: ", userInfo); //data is the new receipt information
         } catch (error) {
           console.error("Error creating receipt: ", error);
