@@ -203,8 +203,9 @@ const Home = () => {
           );
            console.log("User: ", userData.user);
            setReceipts(userData.user.user_receipts);
+           setSelectedDate(new Date());
           setIsCashDonationModalOpen(false);
-          setOtherAmountInput('');
+          setCashAmountInput('');
 
         } catch (error) {
           console.error("Error creating receipt: ", error);
@@ -249,8 +250,8 @@ const Home = () => {
            console.log("User: ", userData.user);
            setReceipts(userData.user.user_receipts);
           setIsOtherDonationModalOpen(false);
-          setIsOtherDonationInput('');
-
+          setOtherAmountInput('');
+          setSelectedDate(new Date());
         } catch (error) {
           console.error("Error creating receipt: ", error);
         }
@@ -400,12 +401,12 @@ const Home = () => {
   <label htmlFor="cashAmountInput" style={{ marginRight: '5px', fontSize: '16px', alignItems: 'center' }}>Cash Amount: $</label>    
   <input
     id="cashAmountInput"
-    value={otherAmountInput}
+    value={cashAmountInput}
     style={{ fontSize: '16px' }}
     onChange={e => {
       // Ignore non-numeric input
       if (!isNaN(e.target.value)) {
-        setOtherAmountInput(e.target.value);
+        setCashAmountInput(e.target.value);
       }
       }}  
       />
@@ -451,7 +452,7 @@ const Home = () => {
   <div className="input-group" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '0px' }}>
   <label htmlFor="cashAmountInput" style={{ marginRight: '5px', fontSize: '16px' }}>Donation Value: $</label>    
   <input
-    id="cashAmountInput"
+    id="otherAmountInput"
     value={otherAmountInput}
     onChange={e => setOtherAmountInput(e.target.value)}
   />
