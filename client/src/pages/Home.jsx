@@ -183,15 +183,24 @@ const Home = () => {
         const formattedDate = date.toLocaleDateString('en-US', options);
         console.log("Formatted Date: ", formattedDate); 
         
-        const newReceipt = new Receipt({
+        const newReceipt = {
           receipt_id: 'some_unique_id', // replace with actual unique id
           timestamp: formattedDate,
           store_number: 1, // replace with actual store number
           donation_value: amount,
-        });
-        console.log("New Receipt: ", newReceipt);
-        const plainObject = newReceipt._doc;
-        console.log("New Receipt:" +plainObject);
+        };
+
+        try {
+          const response = await axios.put(
+            `${process.env.REACT_APP_BASE_URL}/api/create_receipt`,
+            newReceipt,
+            { withCredentials: true }
+          );
+          console.log("Response from server: ", response.data);
+        } catch (error) {
+          console.error("Error creating receipt: ", error);
+        }
+          
       };
       
       const handleOtherDonationSubmit = async () => {

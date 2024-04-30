@@ -13,6 +13,25 @@ router.post('/login', Login)
 router.post('/', userVerification)
 router.post('/update_account', UpdateAccount); 
 
+router.put('/api/create_receipt', async (req, res) => {
+  try {
+    const { receipt_id, timestamp, store_number, donation_value } = req.body;
+
+    const newReceipt = new Receipt({
+      receipt_id,
+      timestamp,
+      store_number,
+      donation_value
+    });
+
+    await newReceipt.save();
+
+    res.send(newReceipt);
+  } catch (error) {
+    res.status(500).send('Server error');
+  }
+});
+
 router.put('/api/receipt', async (req, res) => {
   console.log("updating receipt donation value: " + req.query.id);
   try {
