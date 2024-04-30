@@ -184,7 +184,7 @@ const Home = () => {
         console.log("Formatted Date: ", formattedDate); 
         
 
-          const receipt_id= 'unique_id'; // replace with actual unique id
+          const receipt_id= 'N/A'; // replace with actual unique id
           const timestamp= formattedDate;
           const store_number= 0; // replace with actual store number
           const donation_value= amount;

@@ -5,7 +5,7 @@ const UserReceiptSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: function() {
-      return this.receipt_id !== "unique_id";
+      return this.receipt_id !== "N/A";
     }
   },
   timestamp: {
@@ -21,4 +21,4 @@ const UserReceiptSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('userReceiptss', UserReceiptSchema);
+module.exports = mongoose.model('userReceipts', UserReceiptSchema);
