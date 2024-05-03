@@ -177,7 +177,7 @@ const Home = () => {
         console.log("User Info: ", userInfo._id);
         const userId = userInfo._id;
         
-        const amount = otherAmountInput;
+        const amount = cashAmountInput;
         console.log("Amount: ", amount);
         const date = new Date(selectedDate);
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
