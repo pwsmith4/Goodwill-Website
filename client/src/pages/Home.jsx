@@ -27,6 +27,31 @@ const Home = () => {
       date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
       return date;
     });
+    const items = [
+      { name: '2pc Suit', min: 10, max: 96 },
+      { name: 'Blouse', min: 4, max: 9 },
+      { name: 'Dress', min: 6, max: 28 },
+      { name: 'Handbag', min: 2, max: 10 },
+      { name: 'Hat', min: 1, max: 9 },
+      { name: 'Pants', min: 4, max: 23 },
+      { name: 'Shoes', min: 3, max: 30 },
+      { name: 'Sweater', min: 4, max: 13 },
+    ];
+    function DonationForm() {
+      const [selectedItems, setSelectedItems] = useState({});
+    
+      const handleChange = (item, event) => {
+        setSelectedItems({
+          ...selectedItems,
+          [item.name]: event.target.value,
+        });
+      };
+    
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(selectedItems);
+      };
+    }
     useEffect(() => {
       const fetchReceipts = async () => {
         try {
@@ -457,6 +482,22 @@ const Home = () => {
     onChange={e => setOtherAmountInput(e.target.value)}
   />
   </div>
+      <form onSubmit={handleSubmit}>
+      {items.map((item) => (
+        <div key={item.name}>
+          <label>{item.name}</label>
+          <select onChange={(event) => handleChange(item, event)}>
+            <option value="">Select price</option>
+            {[...Array(item.max - item.min + 1)].map((_, i) => (
+              <option key={i} value={item.min + i}>
+                ${item.min + i}
+              </option>
+            ))}
+          </select>
+        </div>
+      ))}
+      <button type="submit">Submit</button>
+    </form>
   <button className="yellow-modal-button" onClick={handleOtherDonationSubmit} style={{ marginTop: '50px', alignSelf: 'center', borderRadius: '5px' }}>Submit</button>    </div>
   </div>
 )}
