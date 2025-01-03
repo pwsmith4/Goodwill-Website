@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Logo from '../img/Example-Logo.png'; // replace with the path to your logo file
+import Logo from '../img/Goodwill-Logo.png'; // replace with the path to your logo file
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";

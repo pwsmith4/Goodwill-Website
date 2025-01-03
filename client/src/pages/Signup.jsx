@@ -4,7 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import './Signup.css';
 import Login from "./Login";
-import Logo from '../img/Example-Logo.png';
+import Logo from '../img/Goodwill-Logo.png';
 import Footer from '../components/Footer';
 import { states } from "../components/states";
 
