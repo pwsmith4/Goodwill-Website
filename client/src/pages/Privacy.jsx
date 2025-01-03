@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { set } from 'mongoose';
-import Logo from '../img/Example-Logo.png';
+import Logo from '../img/Goodwill-Logo.png';
 
 function Privacy() {
     const navigate = useNavigate();
